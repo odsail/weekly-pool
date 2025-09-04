@@ -46,9 +46,66 @@ def parse_bookmakers_preference(pref_str: Optional[str]) -> List[str]:
         return []
     return [b.strip() for b in pref_str.split(",") if b.strip()]
 
+def filter_by_week(events: List[Dict], week: int) -> List[Dict]:
+    """
+    Filter events to only include games from a specific NFL week.
+    Week 1: Sept 5-9, 2025
+    Week 2: Sept 12-16, 2025
+    Week 3: Sept 19-23, 2025
+    etc.
+    """
+    # Define week start dates (Sundays) for 2025 NFL season
+    week_starts = {
+        1: dt.date(2025, 9, 5),   # Week 1 starts Thursday
+        2: dt.date(2025, 9, 12),  # Week 2 starts Thursday
+        3: dt.date(2025, 9, 19),  # Week 3 starts Thursday
+        4: dt.date(2025, 9, 26),  # Week 4 starts Thursday
+        5: dt.date(2025, 10, 3),  # Week 5 starts Thursday
+        6: dt.date(2025, 10, 10), # Week 6 starts Thursday
+        7: dt.date(2025, 10, 17), # Week 7 starts Thursday
+        8: dt.date(2025, 10, 24), # Week 8 starts Thursday
+        9: dt.date(2025, 10, 31), # Week 9 starts Thursday
+        10: dt.date(2025, 11, 7), # Week 10 starts Thursday
+        11: dt.date(2025, 11, 14), # Week 11 starts Thursday
+        12: dt.date(2025, 11, 21), # Week 12 starts Thursday
+        13: dt.date(2025, 11, 28), # Week 13 starts Thursday
+        14: dt.date(2025, 12, 5),  # Week 14 starts Thursday
+        15: dt.date(2025, 12, 12), # Week 15 starts Thursday
+        16: dt.date(2025, 12, 19), # Week 16 starts Thursday
+        17: dt.date(2025, 12, 26), # Week 17 starts Thursday
+        18: dt.date(2026, 1, 2),   # Week 18 starts Thursday
+    }
+    
+    if week not in week_starts:
+        print(f"Warning: Week {week} not defined. Available weeks: {list(week_starts.keys())}")
+        return events
+    
+    week_start = week_starts[week]
+    week_end = week_start + dt.timedelta(days=4)  # Thursday to Monday
+    
+    filtered_events = []
+    for event in events:
+        commence_str = event.get('commence_time', '')
+        if not commence_str:
+            continue
+            
+        try:
+            # Parse the date part only
+            date_part = commence_str.split('T')[0]
+            event_date = dt.datetime.strptime(date_part, '%Y-%m-%d').date()
+            
+            # Include games within the week range
+            if week_start <= event_date <= week_end:
+                filtered_events.append(event)
+        except Exception as e:
+            print(f"Error parsing date {commence_str}: {e}")
+            continue
+    
+    return filtered_events
+
 # ----------------------- Odds API Fetch -----------------------
 
-def fetch_odds(days: int = 9, regions: str = "us", bookmakers_pref: Optional[str] = None) -> Dict:
+def fetch_odds(days: int = 9, regions: str = "us", bookmakers_pref: Optional[str] = None, week: Optional[int] = None) -> Dict:
     """
     Fetch upcoming NFL H2H odds from The Odds API.
     Docs: https://the-odds-api.com/
@@ -61,7 +118,7 @@ def fetch_odds(days: int = 9, regions: str = "us", bookmakers_pref: Optional[str
     url = "https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds"
     params = {
         "regions": regions or os.getenv("REGIONS", "us"),
-        "markets": "h2h",
+        "markets": "h2h,totals",
         "oddsFormat": "american",
         "apiKey": api_key,
         "dateFormat": "iso",
@@ -71,6 +128,10 @@ def fetch_odds(days: int = 9, regions: str = "us", bookmakers_pref: Optional[str
     resp = requests.get(url, params=params, timeout=30)
     resp.raise_for_status()
     data = resp.json()
+
+    # Filter by week if specified
+    if week is not None:
+        data = filter_by_week(data, week)
 
     # Attach our fetch metadata
     return {
@@ -100,6 +161,25 @@ def pick_bookmakers_line(event: Dict, preferred: List[str]) -> Optional[Dict]:
                 return {"bookmaker": bm.get("title"), "market": m}
     return None
 
+def get_totals_data(event: Dict, preferred: List[str]) -> Optional[Dict]:
+    """
+    Get totals (over/under) data for an event, preferably from preferred bookmakers.
+    """
+    bms = event.get("bookmakers", [])
+    # try preferred order
+    for name in preferred:
+        for bm in bms:
+            if bm.get("title") == name:
+                for m in bm.get("markets", []):
+                    if m.get("key") == "totals" and len(m.get("outcomes", [])) >= 2:
+                        return {"bookmaker": name, "market": m}
+    # fallback: any complete totals
+    for bm in bms:
+        for m in bm.get("markets", []):
+            if m.get("key") == "totals" and len(m.get("outcomes", [])) >= 2:
+                return {"bookmaker": bm.get("title"), "market": m}
+    return None
+
 def normalize_event_row(event: Dict, preferred: List[str]) -> Optional[Dict]:
     """
     Produce a flat row with away/home teams, moneylines, commence_time, etc.
@@ -125,6 +205,19 @@ def normalize_event_row(event: Dict, preferred: List[str]) -> Optional[Dict]:
     away_ml = prices.get(away)
     home_ml = prices.get(home)
 
+    # Get totals data for tiebreaker
+    totals_data = get_totals_data(event, preferred)
+    total_points = None
+    if totals_data:
+        totals_market = totals_data["market"]
+        for outcome in totals_market.get("outcomes", []):
+            if outcome.get("name") == "Over":
+                raw_total = outcome.get("point")
+                if raw_total is not None:
+                    # Round to nearest whole number for tiebreaker
+                    total_points = round(float(raw_total))
+                break
+
     return dict(
         event_id=event.get("id"),
         bookmaker=pick["bookmaker"],
@@ -133,6 +226,7 @@ def normalize_event_row(event: Dict, preferred: List[str]) -> Optional[Dict]:
         home_team=home,
         away_ml=away_ml,
         home_ml=home_ml,
+        total_points=total_points,
     )
 
 def events_to_dataframe(payload: Dict) -> pd.DataFrame:
@@ -160,11 +254,23 @@ def events_to_dataframe(payload: Dict) -> pd.DataFrame:
 def assign_confidence_points(df: pd.DataFrame, pool_size: Optional[int] = None) -> pd.DataFrame:
     """
     Given a DataFrame with 'pick_prob', assign descending confidence points.
-    If pool_size is None, equals the number of games.
+    If pool_size is None, equals the number of games found.
+    If pool_size > number of games, only assign points to available games.
     """
     df = df.copy()
     df = df.sort_values(by=["pick_prob", "commence_time"], ascending=[False, True]).reset_index(drop=True)
-    n = pool_size or len(df)
+    
+    num_games = len(df)
+    if pool_size is None:
+        # Auto-detect: use number of games found
+        n = num_games
+        print(f"Auto-detected pool size: {n} games")
+    else:
+        # Use specified pool size, but don't exceed number of games
+        n = min(pool_size, num_games)
+        if pool_size > num_games:
+            print(f"Warning: Requested {pool_size} points but only {num_games} games available. Using {n} points.")
+    
     # Highest prob gets n, next n-1, ... at least 1
     df["confidence_points"] = list(range(n, n - len(df), -1))
     return df
@@ -189,7 +295,7 @@ def export_picks(df: pd.DataFrame, out_csv: str, out_md: Optional[str] = None):
         "away_ml", "home_ml",
         "away_prob", "home_prob",
         "pick_team", "pick_prob",
-        "confidence_points", "bookmaker",
+        "confidence_points", "bookmaker", "total_points",
     ]
     # add missing cols if custom CSV input
     for c in cols:
@@ -202,11 +308,12 @@ def export_picks(df: pd.DataFrame, out_csv: str, out_md: Optional[str] = None):
         display = df.sort_values("confidence_points", ascending=False).copy()
         display["commence_time"] = display["commence_time"].astype(str).str.replace("T", " ").str.replace("Z", "")
         display["prob%"] = (display["pick_prob"] * 100).round(1)
-        mcols = ["confidence_points", "pick_team", "prob%", "home_team", "home_ml", "away_team", "away_ml", "commence_time", "bookmaker"]
-        lines = ["| Points | Pick | Win% | Home | ML | Away | ML | Kickoff (UTC) | Book |",
-                 "|---:|---|---:|---|---:|---|---:|---|---|"]
+        mcols = ["confidence_points", "pick_team", "prob%", "home_team", "home_ml", "away_team", "away_ml", "commence_time", "bookmaker", "total_points"]
+        lines = ["| Points | Pick | Win% | Home | ML | Away | ML | Kickoff (UTC) | Book | Total |",
+                 "|---:|---|---:|---|---:|---|---:|---|---|---:|"]
         for _, r in display[mcols].iterrows():
-            line = f"| {int(r['confidence_points'])} | {r['pick_team']} | {r['prob%']:.1f} | {r['home_team']} | {r['home_ml']} | {r['away_team']} | {r['away_ml']} | {r['commence_time']} | {r['bookmaker']} |"
+            total_str = f"{int(r['total_points'])}" if pd.notna(r['total_points']) else "-"
+            line = f"| {int(r['confidence_points'])} | {r['pick_team']} | {r['prob%']:.1f} | {r['home_team']} | {r['home_ml']} | {r['away_team']} | {r['away_ml']} | {r['commence_time']} | {r['bookmaker']} | {total_str} |"
             lines.append(line)
         ensure_dir(out_md)
         with open(out_md, "w") as f:
@@ -246,7 +353,7 @@ def load_manual_csv(path: str) -> pd.DataFrame:
 # ----------------------- CLI -----------------------
 
 def cmd_fetch(args):
-    payload = fetch_odds(days=args.days, regions=args.regions, bookmakers_pref=args.bookmakers)
+    payload = fetch_odds(days=args.days, regions=args.regions, bookmakers_pref=args.bookmakers, week=args.week)
     year = dt.datetime.utcnow().year
     out = args.out or f"data/raw/{year}/week-auto-odds.json"
     save_raw_json(payload, out)
@@ -272,15 +379,16 @@ def cmd_compute(args):
 def cmd_auto(args):
     # fetch then compute
     year = dt.datetime.utcnow().year
-    raw_out = f"data/raw/{year}/week-auto-odds.json"
-    payload = fetch_odds(days=args.days, regions=args.regions, bookmakers_pref=args.bookmakers)
+    week_suffix = f"-week{args.week}" if args.week else "-auto"
+    raw_out = f"data/raw/{year}/week{week_suffix}-odds.json"
+    payload = fetch_odds(days=args.days, regions=args.regions, bookmakers_pref=args.bookmakers, week=args.week)
     save_raw_json(payload, raw_out)
 
     df = events_to_dataframe(payload)
     df = assign_confidence_points(df, pool_size=args.pool_size)
 
-    out_csv = f"data/outputs/{year}/week-auto-picks.csv"
-    out_md = f"data/outputs/{year}/week-auto-picks.md"
+    out_csv = f"data/outputs/{year}/week{week_suffix}-picks.csv"
+    out_md = f"data/outputs/{year}/week{week_suffix}-picks.md"
     export_picks(df, out_csv=out_csv, out_md=out_md)
     print(f"Auto: wrote {raw_out}, {out_csv}, {out_md} (games={len(df)})")
 
@@ -292,6 +400,7 @@ def build_parser():
     pf.add_argument("--days", type=int, default=9, help="Days ahead to include (default 9)")
     pf.add_argument("--regions", type=str, default=None, help="Regions parameter (default from .env or 'us')")
     pf.add_argument("--bookmakers", type=str, default=None, help="Preferred bookmakers, comma-separated")
+    pf.add_argument("--week", type=int, default=None, help="NFL week number (1-18)")
     pf.add_argument("--out", type=str, default=None, help="Output JSON path")
     pf.set_defaults(func=cmd_fetch)
 
@@ -308,7 +417,8 @@ def build_parser():
     pa.add_argument("--days", type=int, default=9, help="Days ahead to include (default 9)")
     pa.add_argument("--regions", type=str, default=None, help="Regions parameter (default from .env or 'us')")
     pa.add_argument("--bookmakers", type=str, default=None, help="Preferred bookmakers, comma-separated")
-    pa.add_argument("--pool-size", type=int, default=16, help="Number of confidence points (default 16)")
+    pa.add_argument("--week", type=int, default=None, help="NFL week number (1-18)")
+    pa.add_argument("--pool-size", type=int, default=None, help="Number of confidence points (default: auto-detect from games)")
     pa.set_defaults(func=cmd_auto)
 
     return p
