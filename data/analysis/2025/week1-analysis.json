@@ -1,0 +1,875 @@
+{
+  "week": 1,
+  "year": 2025,
+  "overall_accuracy": 0.8125,
+  "correct_picks": 13,
+  "total_picks": 16,
+  "confidence_accuracy": {
+    "16": {
+      "correct": 1,
+      "total": 1,
+      "accuracy": 1.0
+    },
+    "15": {
+      "correct": 1,
+      "total": 1,
+      "accuracy": 1.0
+    },
+    "14": {
+      "correct": 1,
+      "total": 1,
+      "accuracy": 1.0
+    },
+    "13": {
+      "correct": 1,
+      "total": 1,
+      "accuracy": 1.0
+    },
+    "12": {
+      "correct": 1,
+      "total": 1,
+      "accuracy": 1.0
+    },
+    "11": {
+      "correct": 1,
+      "total": 1,
+      "accuracy": 1.0
+    },
+    "10": {
+      "correct": 1,
+      "total": 1,
+      "accuracy": 1.0
+    },
+    "9": {
+      "correct": 0,
+      "total": 1,
+      "accuracy": 0.0
+    },
+    "8": {
+      "correct": 1,
+      "total": 1,
+      "accuracy": 1.0
+    },
+    "7": {
+      "correct": 0,
+      "total": 1,
+      "accuracy": 0.0
+    },
+    "6": {
+      "correct": 1,
+      "total": 1,
+      "accuracy": 1.0
+    },
+    "5": {
+      "correct": 1,
+      "total": 1,
+      "accuracy": 1.0
+    },
+    "4": {
+      "correct": 1,
+      "total": 1,
+      "accuracy": 1.0
+    },
+    "3": {
+      "correct": 0,
+      "total": 1,
+      "accuracy": 0.0
+    },
+    "2": {
+      "correct": 1,
+      "total": 1,
+      "accuracy": 1.0
+    },
+    "1": {
+      "correct": 1,
+      "total": 1,
+      "accuracy": 1.0
+    }
+  },
+  "total_points_accuracy": {
+    "avg_error": 12.5625,
+    "errors": [
+      4,
+      10,
+      11,
+      19,
+      15,
+      10,
+      21,
+      2,
+      28,
+      11,
+      8,
+      14,
+      3,
+      31,
+      7,
+      7
+    ]
+  },
+  "dominance_analysis": {
+    "total_games": 16,
+    "dominant_wins": 4,
+    "close_games": 11,
+    "blowouts": 4,
+    "average_margin": 7.5625,
+    "margins": [
+      4,
+      8,
+      7,
+      15,
+      1,
+      16,
+      5,
+      6,
+      2,
+      7,
+      14,
+      4,
+      3,
+      1,
+      3,
+      25
+    ]
+  },
+  "team_performance": {
+    "Philadelphia Eagles": {
+      "games": 1,
+      "wins": 1,
+      "total_points_scored": 24,
+      "total_points_allowed": 20,
+      "point_differential": 4,
+      "dominant_wins": 0,
+      "close_wins": 1,
+      "blowout_losses": 0,
+      "win_percentage": 1.0,
+      "avg_points_scored": 24.0,
+      "avg_points_allowed": 20.0,
+      "avg_point_differential": 4.0
+    },
+    "Dallas Cowboys": {
+      "games": 1,
+      "wins": 0,
+      "total_points_scored": 20,
+      "total_points_allowed": 24,
+      "point_differential": -4,
+      "dominant_wins": 0,
+      "close_wins": 0,
+      "blowout_losses": 0,
+      "win_percentage": 0.0,
+      "avg_points_scored": 20.0,
+      "avg_points_allowed": 24.0,
+      "avg_point_differential": -4.0
+    },
+    "Denver Broncos": {
+      "games": 1,
+      "wins": 1,
+      "total_points_scored": 20,
+      "total_points_allowed": 12,
+      "point_differential": 8,
+      "dominant_wins": 0,
+      "close_wins": 0,
+      "blowout_losses": 0,
+      "win_percentage": 1.0,
+      "avg_points_scored": 20.0,
+      "avg_points_allowed": 12.0,
+      "avg_point_differential": 8.0
+    },
+    "Tennessee Titans": {
+      "games": 1,
+      "wins": 0,
+      "total_points_scored": 12,
+      "total_points_allowed": 20,
+      "point_differential": -8,
+      "dominant_wins": 0,
+      "close_wins": 0,
+      "blowout_losses": 0,
+      "win_percentage": 0.0,
+      "avg_points_scored": 12.0,
+      "avg_points_allowed": 20.0,
+      "avg_point_differential": -8.0
+    },
+    "New Orleans Saints": {
+      "games": 1,
+      "wins": 0,
+      "total_points_scored": 13,
+      "total_points_allowed": 20,
+      "point_differential": -7,
+      "dominant_wins": 0,
+      "close_wins": 0,
+      "blowout_losses": 0,
+      "win_percentage": 0.0,
+      "avg_points_scored": 13.0,
+      "avg_points_allowed": 20.0,
+      "avg_point_differential": -7.0
+    },
+    "Arizona Cardinals": {
+      "games": 1,
+      "wins": 1,
+      "total_points_scored": 20,
+      "total_points_allowed": 13,
+      "point_differential": 7,
+      "dominant_wins": 0,
+      "close_wins": 1,
+      "blowout_losses": 0,
+      "win_percentage": 1.0,
+      "avg_points_scored": 20.0,
+      "avg_points_allowed": 13.0,
+      "avg_point_differential": 7.0
+    },
+    "Washington Commanders": {
+      "games": 1,
+      "wins": 1,
+      "total_points_scored": 21,
+      "total_points_allowed": 6,
+      "point_differential": 15,
+      "dominant_wins": 1,
+      "close_wins": 0,
+      "blowout_losses": 0,
+      "win_percentage": 1.0,
+      "avg_points_scored": 21.0,
+      "avg_points_allowed": 6.0,
+      "avg_point_differential": 15.0
+    },
+    "New York Giants": {
+      "games": 1,
+      "wins": 0,
+      "total_points_scored": 6,
+      "total_points_allowed": 21,
+      "point_differential": -15,
+      "dominant_wins": 0,
+      "close_wins": 0,
+      "blowout_losses": 1,
+      "win_percentage": 0.0,
+      "avg_points_scored": 6.0,
+      "avg_points_allowed": 21.0,
+      "avg_point_differential": -15.0
+    },
+    "Cleveland Browns": {
+      "games": 1,
+      "wins": 0,
+      "total_points_scored": 16,
+      "total_points_allowed": 17,
+      "point_differential": -1,
+      "dominant_wins": 0,
+      "close_wins": 0,
+      "blowout_losses": 0,
+      "win_percentage": 0.0,
+      "avg_points_scored": 16.0,
+      "avg_points_allowed": 17.0,
+      "avg_point_differential": -1.0
+    },
+    "Cincinnati Bengals": {
+      "games": 1,
+      "wins": 1,
+      "total_points_scored": 17,
+      "total_points_allowed": 16,
+      "point_differential": 1,
+      "dominant_wins": 0,
+      "close_wins": 1,
+      "blowout_losses": 0,
+      "win_percentage": 1.0,
+      "avg_points_scored": 17.0,
+      "avg_points_allowed": 16.0,
+      "avg_point_differential": 1.0
+    },
+    "Jacksonville Jaguars": {
+      "games": 1,
+      "wins": 1,
+      "total_points_scored": 26,
+      "total_points_allowed": 10,
+      "point_differential": 16,
+      "dominant_wins": 1,
+      "close_wins": 0,
+      "blowout_losses": 0,
+      "win_percentage": 1.0,
+      "avg_points_scored": 26.0,
+      "avg_points_allowed": 10.0,
+      "avg_point_differential": 16.0
+    },
+    "Carolina Panthers": {
+      "games": 1,
+      "wins": 0,
+      "total_points_scored": 10,
+      "total_points_allowed": 26,
+      "point_differential": -16,
+      "dominant_wins": 0,
+      "close_wins": 0,
+      "blowout_losses": 1,
+      "win_percentage": 0.0,
+      "avg_points_scored": 10.0,
+      "avg_points_allowed": 26.0,
+      "avg_point_differential": -16.0
+    },
+    "Los Angeles Rams": {
+      "games": 1,
+      "wins": 1,
+      "total_points_scored": 14,
+      "total_points_allowed": 9,
+      "point_differential": 5,
+      "dominant_wins": 0,
+      "close_wins": 1,
+      "blowout_losses": 0,
+      "win_percentage": 1.0,
+      "avg_points_scored": 14.0,
+      "avg_points_allowed": 9.0,
+      "avg_point_differential": 5.0
+    },
+    "Houston Texans": {
+      "games": 1,
+      "wins": 0,
+      "total_points_scored": 9,
+      "total_points_allowed": 14,
+      "point_differential": -5,
+      "dominant_wins": 0,
+      "close_wins": 0,
+      "blowout_losses": 0,
+      "win_percentage": 0.0,
+      "avg_points_scored": 9.0,
+      "avg_points_allowed": 14.0,
+      "avg_point_differential": -5.0
+    },
+    "Los Angeles Chargers": {
+      "games": 1,
+      "wins": 1,
+      "total_points_scored": 27,
+      "total_points_allowed": 21,
+      "point_differential": 6,
+      "dominant_wins": 0,
+      "close_wins": 1,
+      "blowout_losses": 0,
+      "win_percentage": 1.0,
+      "avg_points_scored": 27.0,
+      "avg_points_allowed": 21.0,
+      "avg_point_differential": 6.0
+    },
+    "Kansas City Chiefs": {
+      "games": 1,
+      "wins": 0,
+      "total_points_scored": 21,
+      "total_points_allowed": 27,
+      "point_differential": -6,
+      "dominant_wins": 0,
+      "close_wins": 0,
+      "blowout_losses": 0,
+      "win_percentage": 0.0,
+      "avg_points_scored": 21.0,
+      "avg_points_allowed": 27.0,
+      "avg_point_differential": -6.0
+    },
+    "New York Jets": {
+      "games": 1,
+      "wins": 0,
+      "total_points_scored": 32,
+      "total_points_allowed": 34,
+      "point_differential": -2,
+      "dominant_wins": 0,
+      "close_wins": 0,
+      "blowout_losses": 0,
+      "win_percentage": 0.0,
+      "avg_points_scored": 32.0,
+      "avg_points_allowed": 34.0,
+      "avg_point_differential": -2.0
+    },
+    "Pittsburgh Steelers": {
+      "games": 1,
+      "wins": 1,
+      "total_points_scored": 34,
+      "total_points_allowed": 32,
+      "point_differential": 2,
+      "dominant_wins": 0,
+      "close_wins": 1,
+      "blowout_losses": 0,
+      "win_percentage": 1.0,
+      "avg_points_scored": 34.0,
+      "avg_points_allowed": 32.0,
+      "avg_point_differential": 2.0
+    },
+    "New England Patriots": {
+      "games": 1,
+      "wins": 0,
+      "total_points_scored": 13,
+      "total_points_allowed": 20,
+      "point_differential": -7,
+      "dominant_wins": 0,
+      "close_wins": 0,
+      "blowout_losses": 0,
+      "win_percentage": 0.0,
+      "avg_points_scored": 13.0,
+      "avg_points_allowed": 20.0,
+      "avg_point_differential": -7.0
+    },
+    "Las Vegas Raiders": {
+      "games": 1,
+      "wins": 1,
+      "total_points_scored": 20,
+      "total_points_allowed": 13,
+      "point_differential": 7,
+      "dominant_wins": 0,
+      "close_wins": 1,
+      "blowout_losses": 0,
+      "win_percentage": 1.0,
+      "avg_points_scored": 20.0,
+      "avg_points_allowed": 13.0,
+      "avg_point_differential": 7.0
+    },
+    "Green Bay Packers": {
+      "games": 1,
+      "wins": 1,
+      "total_points_scored": 27,
+      "total_points_allowed": 13,
+      "point_differential": 14,
+      "dominant_wins": 1,
+      "close_wins": 0,
+      "blowout_losses": 0,
+      "win_percentage": 1.0,
+      "avg_points_scored": 27.0,
+      "avg_points_allowed": 13.0,
+      "avg_point_differential": 14.0
+    },
+    "Detroit Lions": {
+      "games": 1,
+      "wins": 0,
+      "total_points_scored": 13,
+      "total_points_allowed": 27,
+      "point_differential": -14,
+      "dominant_wins": 0,
+      "close_wins": 0,
+      "blowout_losses": 1,
+      "win_percentage": 0.0,
+      "avg_points_scored": 13.0,
+      "avg_points_allowed": 27.0,
+      "avg_point_differential": -14.0
+    },
+    "Seattle Seahawks": {
+      "games": 1,
+      "wins": 0,
+      "total_points_scored": 13,
+      "total_points_allowed": 17,
+      "point_differential": -4,
+      "dominant_wins": 0,
+      "close_wins": 0,
+      "blowout_losses": 0,
+      "win_percentage": 0.0,
+      "avg_points_scored": 13.0,
+      "avg_points_allowed": 17.0,
+      "avg_point_differential": -4.0
+    },
+    "San Francisco 49ers": {
+      "games": 1,
+      "wins": 1,
+      "total_points_scored": 17,
+      "total_points_allowed": 13,
+      "point_differential": 4,
+      "dominant_wins": 0,
+      "close_wins": 1,
+      "blowout_losses": 0,
+      "win_percentage": 1.0,
+      "avg_points_scored": 17.0,
+      "avg_points_allowed": 13.0,
+      "avg_point_differential": 4.0
+    },
+    "Atlanta Falcons": {
+      "games": 1,
+      "wins": 0,
+      "total_points_scored": 20,
+      "total_points_allowed": 23,
+      "point_differential": -3,
+      "dominant_wins": 0,
+      "close_wins": 0,
+      "blowout_losses": 0,
+      "win_percentage": 0.0,
+      "avg_points_scored": 20.0,
+      "avg_points_allowed": 23.0,
+      "avg_point_differential": -3.0
+    },
+    "Tampa Bay Buccaneers": {
+      "games": 1,
+      "wins": 1,
+      "total_points_scored": 23,
+      "total_points_allowed": 20,
+      "point_differential": 3,
+      "dominant_wins": 0,
+      "close_wins": 1,
+      "blowout_losses": 0,
+      "win_percentage": 1.0,
+      "avg_points_scored": 23.0,
+      "avg_points_allowed": 20.0,
+      "avg_point_differential": 3.0
+    },
+    "Buffalo Bills": {
+      "games": 1,
+      "wins": 1,
+      "total_points_scored": 41,
+      "total_points_allowed": 40,
+      "point_differential": 1,
+      "dominant_wins": 0,
+      "close_wins": 1,
+      "blowout_losses": 0,
+      "win_percentage": 1.0,
+      "avg_points_scored": 41.0,
+      "avg_points_allowed": 40.0,
+      "avg_point_differential": 1.0
+    },
+    "Baltimore Ravens": {
+      "games": 1,
+      "wins": 0,
+      "total_points_scored": 40,
+      "total_points_allowed": 41,
+      "point_differential": -1,
+      "dominant_wins": 0,
+      "close_wins": 0,
+      "blowout_losses": 0,
+      "win_percentage": 0.0,
+      "avg_points_scored": 40.0,
+      "avg_points_allowed": 41.0,
+      "avg_point_differential": -1.0
+    },
+    "Chicago Bears": {
+      "games": 1,
+      "wins": 0,
+      "total_points_scored": 24,
+      "total_points_allowed": 27,
+      "point_differential": -3,
+      "dominant_wins": 0,
+      "close_wins": 0,
+      "blowout_losses": 0,
+      "win_percentage": 0.0,
+      "avg_points_scored": 24.0,
+      "avg_points_allowed": 27.0,
+      "avg_point_differential": -3.0
+    },
+    "Minnesota Vikings": {
+      "games": 1,
+      "wins": 1,
+      "total_points_scored": 27,
+      "total_points_allowed": 24,
+      "point_differential": 3,
+      "dominant_wins": 0,
+      "close_wins": 1,
+      "blowout_losses": 0,
+      "win_percentage": 1.0,
+      "avg_points_scored": 27.0,
+      "avg_points_allowed": 24.0,
+      "avg_point_differential": 3.0
+    },
+    "Indianapolis Colts": {
+      "games": 1,
+      "wins": 1,
+      "total_points_scored": 33,
+      "total_points_allowed": 8,
+      "point_differential": 25,
+      "dominant_wins": 1,
+      "close_wins": 0,
+      "blowout_losses": 0,
+      "win_percentage": 1.0,
+      "avg_points_scored": 33.0,
+      "avg_points_allowed": 8.0,
+      "avg_point_differential": 25.0
+    },
+    "Miami Dolphins": {
+      "games": 1,
+      "wins": 0,
+      "total_points_scored": 8,
+      "total_points_allowed": 33,
+      "point_differential": -25,
+      "dominant_wins": 0,
+      "close_wins": 0,
+      "blowout_losses": 1,
+      "win_percentage": 0.0,
+      "avg_points_scored": 8.0,
+      "avg_points_allowed": 33.0,
+      "avg_point_differential": -25.0
+    }
+  },
+  "games_analyzed": [
+    {
+      "prediction": {
+        "pick_team": "Philadelphia Eagles",
+        "confidence_points": 16,
+        "pick_prob": 0.7768331562167907,
+        "total_points": 48
+      },
+      "actual": {
+        "winner": "Philadelphia Eagles",
+        "home_score": 24,
+        "away_score": 20,
+        "total_points": 44
+      },
+      "teams": {
+        "home": "Philadelphia Eagles",
+        "away": "Dallas Cowboys"
+      }
+    },
+    {
+      "prediction": {
+        "pick_team": "Denver Broncos",
+        "confidence_points": 15,
+        "pick_prob": 0.771505376344086,
+        "total_points": 42
+      },
+      "actual": {
+        "winner": "Denver Broncos",
+        "home_score": 20,
+        "away_score": 12,
+        "total_points": 32
+      },
+      "teams": {
+        "home": "Denver Broncos",
+        "away": "Tennessee Titans"
+      }
+    },
+    {
+      "prediction": {
+        "pick_team": "Arizona Cardinals",
+        "confidence_points": 14,
+        "pick_prob": 0.7179705215419501,
+        "total_points": 44
+      },
+      "actual": {
+        "winner": "Arizona Cardinals",
+        "home_score": 13,
+        "away_score": 20,
+        "total_points": 33
+      },
+      "teams": {
+        "home": "New Orleans Saints",
+        "away": "Arizona Cardinals"
+      }
+    },
+    {
+      "prediction": {
+        "pick_team": "Washington Commanders",
+        "confidence_points": 13,
+        "pick_prob": 0.690792883054068,
+        "total_points": 46
+      },
+      "actual": {
+        "winner": "Washington Commanders",
+        "home_score": 21,
+        "away_score": 6,
+        "total_points": 27
+      },
+      "teams": {
+        "home": "Washington Commanders",
+        "away": "New York Giants"
+      }
+    },
+    {
+      "prediction": {
+        "pick_team": "Cincinnati Bengals",
+        "confidence_points": 12,
+        "pick_prob": 0.6750312469954812,
+        "total_points": 48
+      },
+      "actual": {
+        "winner": "Cincinnati Bengals",
+        "home_score": 16,
+        "away_score": 17,
+        "total_points": 33
+      },
+      "teams": {
+        "home": "Cleveland Browns",
+        "away": "Cincinnati Bengals"
+      }
+    },
+    {
+      "prediction": {
+        "pick_team": "Jacksonville Jaguars",
+        "confidence_points": 11,
+        "pick_prob": 0.6224665518611737,
+        "total_points": 46
+      },
+      "actual": {
+        "winner": "Jacksonville Jaguars",
+        "home_score": 26,
+        "away_score": 10,
+        "total_points": 36
+      },
+      "teams": {
+        "home": "Jacksonville Jaguars",
+        "away": "Carolina Panthers"
+      }
+    },
+    {
+      "prediction": {
+        "pick_team": "Los Angeles Rams",
+        "confidence_points": 10,
+        "pick_prob": 0.6092362344582594,
+        "total_points": 44
+      },
+      "actual": {
+        "winner": "Los Angeles Rams",
+        "home_score": 14,
+        "away_score": 9,
+        "total_points": 23
+      },
+      "teams": {
+        "home": "Los Angeles Rams",
+        "away": "Houston Texans"
+      }
+    },
+    {
+      "prediction": {
+        "pick_team": "Kansas City Chiefs",
+        "confidence_points": 9,
+        "pick_prob": 0.5996387718242023,
+        "total_points": 46
+      },
+      "actual": {
+        "winner": "Los Angeles Chargers",
+        "home_score": 27,
+        "away_score": 21,
+        "total_points": 48
+      },
+      "teams": {
+        "home": "Los Angeles Chargers",
+        "away": "Kansas City Chiefs"
+      }
+    },
+    {
+      "prediction": {
+        "pick_team": "Pittsburgh Steelers",
+        "confidence_points": 8,
+        "pick_prob": 0.593369754159424,
+        "total_points": 38
+      },
+      "actual": {
+        "winner": "Pittsburgh Steelers",
+        "home_score": 32,
+        "away_score": 34,
+        "total_points": 66
+      },
+      "teams": {
+        "home": "New York Jets",
+        "away": "Pittsburgh Steelers"
+      }
+    },
+    {
+      "prediction": {
+        "pick_team": "New England Patriots",
+        "confidence_points": 7,
+        "pick_prob": 0.5829926410466066,
+        "total_points": 44
+      },
+      "actual": {
+        "winner": "Las Vegas Raiders",
+        "home_score": 13,
+        "away_score": 20,
+        "total_points": 33
+      },
+      "teams": {
+        "home": "New England Patriots",
+        "away": "Las Vegas Raiders"
+      }
+    },
+    {
+      "prediction": {
+        "pick_team": "Green Bay Packers",
+        "confidence_points": 6,
+        "pick_prob": 0.5720596355604638,
+        "total_points": 48
+      },
+      "actual": {
+        "winner": "Green Bay Packers",
+        "home_score": 27,
+        "away_score": 13,
+        "total_points": 40
+      },
+      "teams": {
+        "home": "Green Bay Packers",
+        "away": "Detroit Lions"
+      }
+    },
+    {
+      "prediction": {
+        "pick_team": "San Francisco 49ers",
+        "confidence_points": 5,
+        "pick_prob": 0.5634920634920635,
+        "total_points": 44
+      },
+      "actual": {
+        "winner": "San Francisco 49ers",
+        "home_score": 13,
+        "away_score": 17,
+        "total_points": 30
+      },
+      "teams": {
+        "home": "Seattle Seahawks",
+        "away": "San Francisco 49ers"
+      }
+    },
+    {
+      "prediction": {
+        "pick_team": "Tampa Bay Buccaneers",
+        "confidence_points": 4,
+        "pick_prob": 0.551441114716549,
+        "total_points": 46
+      },
+      "actual": {
+        "winner": "Tampa Bay Buccaneers",
+        "home_score": 20,
+        "away_score": 23,
+        "total_points": 43
+      },
+      "teams": {
+        "home": "Atlanta Falcons",
+        "away": "Tampa Bay Buccaneers"
+      }
+    },
+    {
+      "prediction": {
+        "pick_team": "Baltimore Ravens",
+        "confidence_points": 3,
+        "pick_prob": 0.5324675324675325,
+        "total_points": 50
+      },
+      "actual": {
+        "winner": "Buffalo Bills",
+        "home_score": 41,
+        "away_score": 40,
+        "total_points": 81
+      },
+      "teams": {
+        "home": "Buffalo Bills",
+        "away": "Baltimore Ravens"
+      }
+    },
+    {
+      "prediction": {
+        "pick_team": "Minnesota Vikings",
+        "confidence_points": 2,
+        "pick_prob": 0.5260865852617197,
+        "total_points": 44
+      },
+      "actual": {
+        "winner": "Minnesota Vikings",
+        "home_score": 24,
+        "away_score": 27,
+        "total_points": 51
+      },
+      "teams": {
+        "home": "Chicago Bears",
+        "away": "Minnesota Vikings"
+      }
+    },
+    {
+      "prediction": {
+        "pick_team": "Indianapolis Colts",
+        "confidence_points": 1,
+        "pick_prob": 0.5043297540699688,
+        "total_points": 48
+      },
+      "actual": {
+        "winner": "Indianapolis Colts",
+        "home_score": 33,
+        "away_score": 8,
+        "total_points": 41
+      },
+      "teams": {
+        "home": "Indianapolis Colts",
+        "away": "Miami Dolphins"
+      }
+    }
+  ]
+}

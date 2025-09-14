@@ -1,0 +1,17 @@
+home_team,away_team,predicted_winner,actual_winner,correct,confidence_points,predicted_total,actual_total,total_error,home_score,away_score,margin
+Philadelphia Eagles,Dallas Cowboys,Philadelphia Eagles,Philadelphia Eagles,Yes,16,48,44,4,24,20,4
+Denver Broncos,Tennessee Titans,Denver Broncos,Denver Broncos,Yes,15,42,32,10,20,12,8
+New Orleans Saints,Arizona Cardinals,Arizona Cardinals,Arizona Cardinals,Yes,14,44,33,11,13,20,7
+Washington Commanders,New York Giants,Washington Commanders,Washington Commanders,Yes,13,46,27,19,21,6,15
+Cleveland Browns,Cincinnati Bengals,Cincinnati Bengals,Cincinnati Bengals,Yes,12,48,33,15,16,17,1
+Jacksonville Jaguars,Carolina Panthers,Jacksonville Jaguars,Jacksonville Jaguars,Yes,11,46,36,10,26,10,16
+Los Angeles Rams,Houston Texans,Los Angeles Rams,Los Angeles Rams,Yes,10,44,23,21,14,9,5
+Los Angeles Chargers,Kansas City Chiefs,Kansas City Chiefs,Los Angeles Chargers,No,9,46,48,2,27,21,6
+New York Jets,Pittsburgh Steelers,Pittsburgh Steelers,Pittsburgh Steelers,Yes,8,38,66,28,32,34,2
+New England Patriots,Las Vegas Raiders,New England Patriots,Las Vegas Raiders,No,7,44,33,11,13,20,7
+Green Bay Packers,Detroit Lions,Green Bay Packers,Green Bay Packers,Yes,6,48,40,8,27,13,14
+Seattle Seahawks,San Francisco 49ers,San Francisco 49ers,San Francisco 49ers,Yes,5,44,30,14,13,17,4
+Atlanta Falcons,Tampa Bay Buccaneers,Tampa Bay Buccaneers,Tampa Bay Buccaneers,Yes,4,46,43,3,20,23,3
+Buffalo Bills,Baltimore Ravens,Baltimore Ravens,Buffalo Bills,No,3,50,81,31,41,40,1
+Chicago Bears,Minnesota Vikings,Minnesota Vikings,Minnesota Vikings,Yes,2,44,51,7,24,27,3
+Indianapolis Colts,Miami Dolphins,Indianapolis Colts,Indianapolis Colts,Yes,1,48,41,7,33,8,25

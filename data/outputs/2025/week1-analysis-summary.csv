@@ -1,0 +1,9 @@
+metric,value
+Overall Accuracy,81.2%
+Correct Picks,13
+Total Picks,16
+Average Total Points Error,12.6
+Total Games,16
+Blowouts (14+ pts),4
+Close Games (≤7 pts),11
+Average Margin,7.6
