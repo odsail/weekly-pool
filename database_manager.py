@@ -9,12 +9,23 @@ import pandas as pd
 from typing import Dict, List, Optional, Tuple
 from datetime import datetime
 import os
+from team_name_mapper import TeamNameMapper
 
 class DatabaseManager:
     """Manages SQLite database operations for NFL confidence pool"""
     
-    def __init__(self, db_path: str = "data/nfl_pool.db"):
-        self.db_path = db_path
+    def __init__(self, db_path: str = "data/nfl_pool.db", version: str = None):
+        if version:
+            # Use versioned database path
+            if version == "v2":
+                self.db_path = "data/nfl_pool_v2.db"
+            elif version == "v1":
+                self.db_path = "data/nfl_pool_v1.db"
+            else:
+                self.db_path = db_path
+        else:
+            self.db_path = db_path
+        self.team_mapper = TeamNameMapper()
         self._ensure_db_exists()
     
     def _ensure_db_exists(self):
@@ -65,16 +76,41 @@ class DatabaseManager:
             result = cursor.fetchone()
             return result[0] if result else None
     
+    def _ensure_team_exists(self, team_name: str) -> int:
+        """Ensure team exists in database, create if not"""
+        team_id = self.get_team_id(team_name)
+        if team_id:
+            return team_id
+        
+        # Get team info from mapper
+        team_info = self.team_mapper.get_team_info(team_name)
+        if not team_info:
+            raise ValueError(f"Unknown team: {team_name}")
+        
+        # Create team
+        return self.upsert_team(
+            team_name,
+            team_info['abbreviation'],
+            team_info['conference'],
+            team_info['division']
+        )
+    
     # Game operations
     def upsert_game(self, season_year: int, week: int, home_team: str, away_team: str, 
                    game_date: str, home_score: Optional[int] = None, 
                    away_score: Optional[int] = None) -> int:
         """Insert or update game, return game ID"""
-        home_team_id = self.get_team_id(home_team)
-        away_team_id = self.get_team_id(away_team)
+        # Map team names to current standardized names
+        mapped_home_team = self.team_mapper.map_team_name(home_team)
+        mapped_away_team = self.team_mapper.map_team_name(away_team)
         
-        if not home_team_id or not away_team_id:
-            raise ValueError(f"Team not found: {home_team} or {away_team}")
+        # Skip invalid games (Pro Bowl, etc.)
+        if not mapped_home_team or not mapped_away_team:
+            raise ValueError(f"Invalid game: {home_team} vs {away_team} (Pro Bowl or invalid teams)")
+        
+        # Ensure teams exist in database
+        home_team_id = self._ensure_team_exists(mapped_home_team)
+        away_team_id = self._ensure_team_exists(mapped_away_team)
         
         total_points = None
         margin = None
@@ -332,3 +368,160 @@ class DatabaseManager:
                 """, (analysis_id, int(conf_points), data['correct'], 
                       data['total'], data['accuracy']))
                 conn.commit()
+    
+    # Expert picks operations
+    def insert_expert_pick(self, game_id: int, expert_name: str, pick_team: str, 
+                          spread: float = None, result: str = None, confidence: int = 10) -> int:
+        """Insert expert pick into database"""
+        
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                INSERT OR REPLACE INTO expert_picks 
+                (game_id, expert_name, pick_team, spread, result, confidence)
+                VALUES (?, ?, ?, ?, ?, ?)
+            """, (game_id, expert_name, pick_team, spread, result, confidence))
+            
+            conn.commit()
+            return cursor.lastrowid
+    
+    def get_expert_picks_for_game(self, game_id: int) -> pd.DataFrame:
+        """Get all expert picks for a specific game"""
+        
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT expert_name, pick_team, spread, result, confidence
+                FROM expert_picks
+                WHERE game_id = ?
+                ORDER BY expert_name
+            """, (game_id,))
+            
+            columns = [description[0] for description in cursor.description]
+            return pd.DataFrame([dict(zip(columns, row)) for row in cursor.fetchall()])
+    
+    def get_expert_consensus(self, game_id: int) -> dict:
+        """Get expert consensus for a game"""
+        
+        expert_picks = self.get_expert_picks_for_game(game_id)
+        
+        if expert_picks.empty:
+            return {"consensus_team": None, "consensus_percentage": 0.0, "total_experts": 0}
+        
+        # Count picks for each team
+        pick_counts = expert_picks['pick_team'].value_counts()
+        total_experts = len(expert_picks)
+        
+        if len(pick_counts) > 0:
+            consensus_team = pick_counts.index[0]
+            consensus_percentage = pick_counts.iloc[0] / total_experts
+        else:
+            consensus_team = None
+            consensus_percentage = 0.0
+        
+        return {
+            "consensus_team": consensus_team,
+            "consensus_percentage": consensus_percentage,
+            "total_experts": total_experts,
+            "pick_breakdown": pick_counts.to_dict()
+        }
+    
+    # Pool results operations
+    def insert_pool_result(self, season_year: int, week: int, participant_name: str, 
+                          game_id: int, pick_team_id: int, confidence_points: int, 
+                          is_correct: bool, total_weekly_score: int = None, 
+                          weekly_rank: int = None) -> int:
+        """Insert a pool result record"""
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                INSERT OR REPLACE INTO pool_results 
+                (season_year, week, participant_name, game_id, pick_team_id, 
+                 confidence_points, is_correct, total_weekly_score, weekly_rank)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (season_year, week, participant_name, game_id, pick_team_id, 
+                  confidence_points, is_correct, total_weekly_score, weekly_rank))
+            return cursor.lastrowid
+    
+    def get_pool_results_for_week(self, season_year: int, week: int) -> List[Dict]:
+        """Get all pool results for a specific week"""
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT pr.*, t.name as pick_team_name, ht.name as home_team, at.name as away_team
+                FROM pool_results pr
+                JOIN teams t ON pr.pick_team_id = t.id
+                JOIN games g ON pr.game_id = g.id
+                JOIN teams ht ON g.home_team_id = ht.id
+                JOIN teams at ON g.away_team_id = at.id
+                WHERE pr.season_year = ? AND pr.week = ?
+                ORDER BY pr.participant_name, pr.confidence_points DESC
+            """, (season_year, week))
+            
+            columns = [description[0] for description in cursor.description]
+            return [dict(zip(columns, row)) for row in cursor.fetchall()]
+    
+    def get_participant_weekly_summary(self, season_year: int, week: int) -> List[Dict]:
+        """Get weekly summary for all participants"""
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT 
+                    participant_name,
+                    COUNT(*) as total_picks,
+                    SUM(CASE WHEN is_correct = 1 THEN 1 ELSE 0 END) as correct_picks,
+                    ROUND(SUM(CASE WHEN is_correct = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 1) as accuracy,
+                    SUM(CASE WHEN is_correct = 1 THEN confidence_points ELSE 0 END) as total_score,
+                    AVG(total_weekly_score) as avg_weekly_score,
+                    AVG(weekly_rank) as avg_rank
+                FROM pool_results 
+                WHERE season_year = ? AND week = ?
+                GROUP BY participant_name
+                ORDER BY total_score DESC
+            """, (season_year, week))
+            
+            columns = [description[0] for description in cursor.description]
+            return [dict(zip(columns, row)) for row in cursor.fetchall()]
+    
+    def get_top_performers_analysis(self, season_year: int, week: int, top_n: int = 5) -> Dict:
+        """Analyze top performers' pick patterns"""
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT 
+                    pr.participant_name,
+                    pr.pick_team_id,
+                    t.name as pick_team,
+                    pr.confidence_points,
+                    pr.is_correct,
+                    ht.name as home_team,
+                    at.name as away_team
+                FROM pool_results pr
+                JOIN teams t ON pr.pick_team_id = t.id
+                JOIN games g ON pr.game_id = g.id
+                JOIN teams ht ON g.home_team_id = ht.id
+                JOIN teams at ON g.away_team_id = at.id
+                WHERE pr.season_year = ? AND pr.week = ?
+                AND pr.participant_name IN (
+                    SELECT participant_name 
+                    FROM pool_results 
+                    WHERE season_year = ? AND week = ?
+                    GROUP BY participant_name
+                    ORDER BY SUM(CASE WHEN is_correct = 1 THEN confidence_points ELSE 0 END) DESC
+                    LIMIT ?
+                )
+                ORDER BY pr.participant_name, pr.confidence_points DESC
+            """, (season_year, week, season_year, week, top_n))
+            
+            columns = [description[0] for description in cursor.description]
+            results = [dict(zip(columns, row)) for row in cursor.fetchall()]
+            
+            # Group by participant
+            participants = {}
+            for result in results:
+                participant = result['participant_name']
+                if participant not in participants:
+                    participants[participant] = []
+                participants[participant].append(result)
+            
+            return participants

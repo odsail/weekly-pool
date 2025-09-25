@@ -24,9 +24,15 @@ CREATE TABLE games (
     margin INTEGER,
     winner_team_id INTEGER,
     is_completed BOOLEAN DEFAULT FALSE,
+    is_international BOOLEAN DEFAULT FALSE,
+    international_location TEXT, -- 'London', 'Frankfurt', 'Dublin', etc.
+    true_home_team_id INTEGER, -- Actual home team (may differ from schedule)
+    stadium_type TEXT, -- 'dome', 'outdoor', 'international'
+    weather_conditions TEXT, -- For outdoor games
     FOREIGN KEY (home_team_id) REFERENCES teams(id),
     FOREIGN KEY (away_team_id) REFERENCES teams(id),
     FOREIGN KEY (winner_team_id) REFERENCES teams(id),
+    FOREIGN KEY (true_home_team_id) REFERENCES teams(id),
     UNIQUE(season_year, week, home_team_id, away_team_id)
 );
 
@@ -119,9 +125,80 @@ CREATE TABLE game_analysis (
     FOREIGN KEY (actual_winner_id) REFERENCES teams(id)
 );
 
+-- Home field advantage analysis table
+CREATE TABLE home_field_advantage (
+    id INTEGER PRIMARY KEY,
+    team_id INTEGER NOT NULL,
+    season_year INTEGER NOT NULL,
+    true_home_games INTEGER DEFAULT 0,
+    true_home_wins INTEGER DEFAULT 0,
+    true_home_losses INTEGER DEFAULT 0,
+    international_games INTEGER DEFAULT 0,
+    international_wins INTEGER DEFAULT 0,
+    international_losses INTEGER DEFAULT 0,
+    home_win_percentage REAL,
+    international_win_percentage REAL,
+    home_field_advantage REAL, -- Calculated advantage vs neutral site
+    FOREIGN KEY (team_id) REFERENCES teams(id),
+    UNIQUE(team_id, season_year)
+);
+
+-- International games tracking table
+CREATE TABLE international_games (
+    id INTEGER PRIMARY KEY,
+    game_id INTEGER NOT NULL,
+    location TEXT NOT NULL, -- 'London', 'Frankfurt', 'Dublin'
+    scheduled_home_team_id INTEGER NOT NULL,
+    scheduled_away_team_id INTEGER NOT NULL,
+    actual_home_team_id INTEGER, -- May be different from scheduled
+    neutral_site BOOLEAN DEFAULT TRUE,
+    attendance INTEGER,
+    time_zone_difference INTEGER, -- Hours from EST
+    FOREIGN KEY (game_id) REFERENCES games(id),
+    FOREIGN KEY (scheduled_home_team_id) REFERENCES teams(id),
+    FOREIGN KEY (scheduled_away_team_id) REFERENCES teams(id),
+    FOREIGN KEY (actual_home_team_id) REFERENCES teams(id)
+);
+
+-- Expert picks tracking table
+CREATE TABLE expert_picks (
+    id INTEGER PRIMARY KEY,
+    game_id INTEGER NOT NULL,
+    expert_name TEXT NOT NULL,
+    pick_team TEXT NOT NULL,
+    spread REAL,
+    result TEXT, -- 'WIN', 'LOSS', 'PUSH'
+    confidence INTEGER DEFAULT 10,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (game_id) REFERENCES games(id)
+);
+
+-- Pool results tracking table
+CREATE TABLE pool_results (
+    id INTEGER PRIMARY KEY,
+    season_year INTEGER NOT NULL,
+    week INTEGER NOT NULL,
+    participant_name TEXT NOT NULL,
+    game_id INTEGER NOT NULL,
+    pick_team_id INTEGER NOT NULL,
+    confidence_points INTEGER NOT NULL,
+    is_correct BOOLEAN,
+    total_weekly_score INTEGER,
+    weekly_rank INTEGER,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (game_id) REFERENCES games(id),
+    FOREIGN KEY (pick_team_id) REFERENCES teams(id),
+    UNIQUE(season_year, week, participant_name, game_id)
+);
+
 -- Indexes for better performance
 CREATE INDEX idx_games_season_week ON games(season_year, week);
+CREATE INDEX idx_games_international ON games(is_international);
 CREATE INDEX idx_picks_season_week ON picks(season_year, week);
 CREATE INDEX idx_team_performance_team_season ON team_performance(team_id, season_year);
 CREATE INDEX idx_odds_game_timestamp ON odds(game_id, timestamp);
 CREATE INDEX idx_analysis_season_week ON analysis_results(season_year, week);
+CREATE INDEX idx_home_field_advantage_team ON home_field_advantage(team_id, season_year);
+CREATE INDEX idx_international_games_location ON international_games(location);
+CREATE INDEX idx_pool_results_season_week ON pool_results(season_year, week);
+CREATE INDEX idx_pool_results_participant ON pool_results(participant_name, season_year, week);

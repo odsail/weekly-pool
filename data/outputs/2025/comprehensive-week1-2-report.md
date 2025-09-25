@@ -1,0 +1,51 @@
+# Comprehensive Week 1-2 Analysis
+
+**Analysis Date:** 2025-09-18 13:29:08
+
+## Summary
+
+- **Week 1:** 0/0 (0.0%)
+- **Week 2:** 11/16 (68.8%)
+- **Combined:** 11/16 (68.8%)
+
+## Confidence Level Performance
+
+| Confidence | Correct | Total | Accuracy |
+|------------|---------|-------|----------|
+| 16 |  1 |  1 | 100.0% |
+| 15 |  1 |  1 | 100.0% |
+| 14 |  1 |  1 | 100.0% |
+| 13 |  1 |  1 | 100.0% |
+| 12 |  1 |  1 | 100.0% |
+| 11 |  1 |  1 | 100.0% |
+| 10 |  1 |  1 | 100.0% |
+|  9 |  0 |  1 |   0.0% |
+|  8 |  1 |  1 | 100.0% |
+|  7 |  1 |  1 | 100.0% |
+|  6 |  1 |  1 | 100.0% |
+|  5 |  0 |  1 |   0.0% |
+|  4 |  0 |  1 |   0.0% |
+|  3 |  0 |  1 |   0.0% |
+|  2 |  1 |  1 | 100.0% |
+|  1 |  0 |  1 |   0.0% |
+
+## Game-by-Game Results
+
+| Week | Game | Pick | Confidence | Actual Winner | Result | Score |
+|------|------|------|------------|---------------|--------|-------|
+| 2 | Cleveland Browns @ Baltimore Ravens | Baltimore Ravens | 16 | Baltimore Ravens | ✅ | 17-41 |
+| 2 | Buffalo Bills @ New York Jets | Buffalo Bills | 15 | Buffalo Bills | ✅ | 30-10 |
+| 2 | Carolina Panthers @ Arizona Cardinals | Arizona Cardinals | 14 | Arizona Cardinals | ✅ | 22-27 |
+| 2 | Chicago Bears @ Detroit Lions | Detroit Lions | 13 | Detroit Lions | ✅ | 21-52 |
+| 2 | Los Angeles Rams @ Tennessee Titans | Los Angeles Rams | 12 | Los Angeles Rams | ✅ | 33-19 |
+| 2 | New York Giants @ Dallas Cowboys | Dallas Cowboys | 11 | Dallas Cowboys | ✅ | 37-40 |
+| 2 | Los Angeles Chargers @ Las Vegas Raiders | Los Angeles Chargers | 10 | Los Angeles Chargers | ✅ | 20-9 |
+| 2 | Atlanta Falcons @ Minnesota Vikings | Minnesota Vikings | 9 | Atlanta Falcons | ❌ | 22-6 |
+| 2 | Washington Commanders @ Green Bay Packers | Green Bay Packers | 8 | Green Bay Packers | ✅ | 18-27 |
+| 2 | Jacksonville Jaguars @ Cincinnati Bengals | Cincinnati Bengals | 7 | Cincinnati Bengals | ✅ | 27-31 |
+| 2 | San Francisco 49ers @ New Orleans Saints | San Francisco 49ers | 6 | San Francisco 49ers | ✅ | 26-21 |
+| 2 | Seattle Seahawks @ Pittsburgh Steelers | Pittsburgh Steelers | 5 | Seattle Seahawks | ❌ | 31-17 |
+| 2 | Tampa Bay Buccaneers @ Houston Texans | Houston Texans | 4 | Tampa Bay Buccaneers | ❌ | 20-19 |
+| 2 | Denver Broncos @ Indianapolis Colts | Denver Broncos | 3 | Indianapolis Colts | ❌ | 28-29 |
+| 2 | Philadelphia Eagles @ Kansas City Chiefs | Philadelphia Eagles | 2 | Philadelphia Eagles | ✅ | 20-17 |
+| 2 | New England Patriots @ Miami Dolphins | Miami Dolphins | 1 | New England Patriots | ❌ | 33-27 |

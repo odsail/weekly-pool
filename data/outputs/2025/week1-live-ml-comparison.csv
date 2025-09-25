@@ -1,0 +1,17 @@
+game,original_pick,original_confidence,ml_pick,ml_confidence,ml_win_prob,actual_winner,original_correct,ml_correct,confidence_change,pick_changed,home_score,away_score,margin
+Dallas Cowboys @ Philadelphia Eagles,Philadelphia Eagles,16,Dallas Cowboys,13,0.8501072438095235,Philadelphia Eagles,True,False,-3,True,24,20,4
+Kansas City Chiefs @ Los Angeles Chargers,Kansas City Chiefs,9,Los Angeles Chargers,11,0.7097886811853147,Los Angeles Chargers,False,True,2,True,27,21,6
+Tampa Bay Buccaneers @ Atlanta Falcons,Tampa Bay Buccaneers,4,Tampa Bay Buccaneers,13,0.8633070320675874,Tampa Bay Buccaneers,True,True,9,False,20,23,3
+Cincinnati Bengals @ Cleveland Browns,Cincinnati Bengals,12,Cincinnati Bengals,13,0.8148852272029131,Cincinnati Bengals,True,True,1,False,16,17,1
+Miami Dolphins @ Indianapolis Colts,Indianapolis Colts,1,Miami Dolphins,12,0.778283456063565,Indianapolis Colts,True,False,11,True,33,8,25
+Las Vegas Raiders @ New England Patriots,New England Patriots,7,Las Vegas Raiders,12,0.7699395396441517,Las Vegas Raiders,False,True,5,True,13,20,7
+Arizona Cardinals @ New Orleans Saints,Arizona Cardinals,14,Arizona Cardinals,14,0.901898434898435,Arizona Cardinals,True,True,0,False,13,20,7
+Pittsburgh Steelers @ New York Jets,Pittsburgh Steelers,8,Pittsburgh Steelers,13,0.8271742806088435,Pittsburgh Steelers,True,True,5,False,32,34,2
+New York Giants @ Washington Commanders,Washington Commanders,13,New York Giants,12,0.7769609287505608,Washington Commanders,True,False,-1,True,21,6,15
+Carolina Panthers @ Jacksonville Jaguars,Jacksonville Jaguars,11,Carolina Panthers,13,0.8510592025098707,Jacksonville Jaguars,True,False,2,True,26,10,16
+Tennessee Titans @ Denver Broncos,Denver Broncos,15,Tennessee Titans,13,0.8496596362201957,Denver Broncos,True,False,-2,True,20,12,8
+San Francisco 49ers @ Seattle Seahawks,San Francisco 49ers,5,San Francisco 49ers,12,0.76418965031988,San Francisco 49ers,True,True,7,False,13,17,4
+Detroit Lions @ Green Bay Packers,Green Bay Packers,6,Green Bay Packers,12,0.7607655043224265,Green Bay Packers,True,True,6,False,27,13,14
+Houston Texans @ Los Angeles Rams,Los Angeles Rams,10,Houston Texans,12,0.8003079114563978,Los Angeles Rams,True,False,2,True,14,9,5
+Baltimore Ravens @ Buffalo Bills,Baltimore Ravens,3,Buffalo Bills,12,0.7503935732777133,Buffalo Bills,False,True,9,True,41,40,1
+Minnesota Vikings @ Chicago Bears,Minnesota Vikings,2,Minnesota Vikings,13,0.8198672413185583,Minnesota Vikings,True,True,11,False,24,27,3

@@ -1,0 +1,17 @@
+game,original_pick,original_conf,ml_pick,ml_conf,actual_winner,original_correct,ml_correct,pick_agreement,score
+Cleveland Browns @ Baltimore Ravens,Baltimore Ravens,16,N/A,N/A,Baltimore Ravens,True,False,False,17-41
+Buffalo Bills @ New York Jets,Buffalo Bills,15,N/A,N/A,Buffalo Bills,True,False,False,30-10
+Carolina Panthers @ Arizona Cardinals,Arizona Cardinals,14,N/A,N/A,Arizona Cardinals,True,False,False,22-27
+Chicago Bears @ Detroit Lions,Detroit Lions,13,N/A,N/A,Detroit Lions,True,False,False,21-52
+Los Angeles Rams @ Tennessee Titans,Los Angeles Rams,12,N/A,N/A,Los Angeles Rams,True,False,False,33-19
+New York Giants @ Dallas Cowboys,Dallas Cowboys,11,N/A,N/A,Dallas Cowboys,True,False,False,37-40
+Los Angeles Chargers @ Las Vegas Raiders,Los Angeles Chargers,10,N/A,N/A,Los Angeles Chargers,True,False,False,20-9
+Atlanta Falcons @ Minnesota Vikings,Minnesota Vikings,9,N/A,N/A,Atlanta Falcons,False,False,False,22-6
+Washington Commanders @ Green Bay Packers,Green Bay Packers,8,N/A,N/A,Green Bay Packers,True,False,False,18-27
+Jacksonville Jaguars @ Cincinnati Bengals,Cincinnati Bengals,7,N/A,N/A,Cincinnati Bengals,True,False,False,27-31
+San Francisco 49ers @ New Orleans Saints,San Francisco 49ers,6,N/A,N/A,San Francisco 49ers,True,False,False,26-21
+Seattle Seahawks @ Pittsburgh Steelers,Pittsburgh Steelers,5,N/A,N/A,Seattle Seahawks,False,False,False,31-17
+Tampa Bay Buccaneers @ Houston Texans,Houston Texans,4,N/A,N/A,Tampa Bay Buccaneers,False,False,False,20-19
+Denver Broncos @ Indianapolis Colts,Denver Broncos,3,N/A,N/A,Indianapolis Colts,False,False,False,28-29
+Philadelphia Eagles @ Kansas City Chiefs,Philadelphia Eagles,2,N/A,N/A,Philadelphia Eagles,True,False,False,20-17
+New England Patriots @ Miami Dolphins,Miami Dolphins,1,N/A,N/A,New England Patriots,False,False,False,33-27

@@ -64,7 +64,8 @@ class NFLConfidenceMLModel:
         feature_cols = [
             'home_ml', 'away_ml', 'total_points', 'home_win_prob', 'away_win_prob',
             'ml_difference', 'ml_ratio', 'prob_difference', 'prob_ratio',
-            'week_sin', 'week_cos', 'home_team_encoded', 'away_team_encoded', 'pick_team_encoded'
+            'week_sin', 'week_cos', 'home_team_encoded', 'away_team_encoded', 'pick_team_encoded',
+            'home_field_advantage', 'is_international'
         ]
         
         # Add historical features
@@ -77,7 +78,7 @@ class NFLConfidenceMLModel:
         return features_df[self.feature_columns]
     
     def _add_historical_features(self, df: pd.DataFrame) -> pd.DataFrame:
-        """Add historical performance features"""
+        """Add historical performance features including home field advantage"""
         for _, row in df.iterrows():
             # Get team performance history
             home_team = row.get('home_team')
@@ -89,6 +90,10 @@ class NFLConfidenceMLModel:
                 if not home_history.empty:
                     df.loc[df.index == row.name, 'hist_home_win_pct'] = home_history['win_percentage'].mean()
                     df.loc[df.index == row.name, 'hist_home_pt_diff'] = home_history['point_differential'].mean()
+                
+                # Add home field advantage
+                home_field_adv = self._get_home_field_advantage(home_team)
+                df.loc[df.index == row.name, 'home_field_advantage'] = home_field_adv
             
             if away_team:
                 away_history = self.db_manager.get_team_performance_history(away_team, weeks_back=4)
@@ -101,8 +106,46 @@ class NFLConfidenceMLModel:
                 if not pick_history.empty:
                     df.loc[df.index == row.name, 'hist_pick_win_pct'] = pick_history['win_percentage'].mean()
                     df.loc[df.index == row.name, 'hist_pick_pt_diff'] = pick_history['point_differential'].mean()
+            
+            # Add international game awareness
+            is_international = self._is_international_game(row.get('home_team'), row.get('away_team'))
+            df.loc[df.index == row.name, 'is_international'] = is_international
+            
+            # Adjust home field advantage for international games
+            if is_international and 'home_field_advantage' in df.columns:
+                df.loc[df.index == row.name, 'home_field_advantage'] = 0  # Neutral site
         
         return df
+    
+    def _get_home_field_advantage(self, team: str) -> float:
+        """Get historical home field advantage for a team"""
+        with self.db_manager.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT AVG(home_field_advantage) 
+                FROM home_field_advantage hfa
+                JOIN teams t ON hfa.team_id = t.id
+                WHERE t.name = ? AND hfa.season_year >= 2020
+            """, (team,))
+            result = cursor.fetchone()
+            return result[0] if result and result[0] is not None else 0.0
+    
+    def _is_international_game(self, home_team: str, away_team: str) -> bool:
+        """Check if this is likely an international game based on historical patterns"""
+        # This is a simplified check - in practice, you'd check the actual game location
+        # For now, we'll use a heuristic based on known international game patterns
+        
+        # Teams that frequently play international games
+        frequent_intl_teams = {
+            'Jacksonville Jaguars', 'New England Patriots', 'New York Giants',
+            'Philadelphia Eagles', 'Indianapolis Colts', 'Miami Dolphins'
+        }
+        
+        # If both teams are frequent international game participants, higher chance
+        if home_team in frequent_intl_teams and away_team in frequent_intl_teams:
+            return True
+        
+        return False
     
     def train_model(self, test_size: float = 0.2) -> Dict:
         """Train the ML model"""
@@ -240,7 +283,7 @@ class NFLConfidenceMLModel:
 
 def main():
     """Example usage of the ML model"""
-    db_manager = DatabaseManager()
+    db_manager = DatabaseManager(version="v2")
     ml_model = NFLConfidenceMLModel(db_manager)
     
     # Train model

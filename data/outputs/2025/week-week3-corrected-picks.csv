@@ -1,0 +1,16 @@
+game_id,home_team,away_team,pick_team,confidence_points,win_probability,game_date,reasoning
+2629,Buffalo Bills,Miami Dolphins,Buffalo Bills,16,0.85,2025-09-19,Bills are much better team
+2630,Cleveland Browns,Green Bay Packers,Cleveland Browns,8,0.62,2025-09-21,"Browns at home, better defense"
+2631,Tennessee Titans,Indianapolis Colts,Tennessee Titans,9,0.65,2025-09-21,"Titans at home, Colts inconsistent"
+2632,Minnesota Vikings,Cincinnati Bengals,Minnesota Vikings,10,0.68,2025-09-21,"Vikings at home, Bengals struggling"
+2633,New England Patriots,Pittsburgh Steelers,New England Patriots,11,0.7,2025-09-21,"Patriots at home, Steelers inconsistent"
+2634,Philadelphia Eagles,Los Angeles Rams,Philadelphia Eagles,12,0.72,2025-09-21,"Eagles at home, better roster"
+2635,Tampa Bay Buccaneers,New York Jets,Tampa Bay Buccaneers,7,0.6,2025-09-21,"Bucs at home, Jets struggling"
+2636,Washington Commanders,Las Vegas Raiders,Washington Commanders,6,0.58,2025-09-21,Commanders at home
+2637,Carolina Panthers,Atlanta Falcons,Carolina Panthers,5,0.55,2025-09-21,"Panthers at home, close game"
+2638,Jacksonville Jaguars,Houston Texans,Jacksonville Jaguars,4,0.52,2025-09-21,"Jaguars at home, close game"
+2639,Los Angeles Chargers,Denver Broncos,Los Angeles Chargers,3,0.5,2025-09-21,"Chargers at home, close game"
+2640,Seattle Seahawks,New Orleans Saints,Seattle Seahawks,2,0.48,2025-09-21,"Seahawks at home, close game"
+2641,Chicago Bears,Dallas Cowboys,Dallas Cowboys,1,0.45,2025-09-21,"Cowboys better team, but on road"
+2643,New York Giants,Kansas City Chiefs,Kansas City Chiefs,14,0.78,2025-09-22,"Chiefs are elite, Giants struggling"
+2644,Baltimore Ravens,Detroit Lions,Baltimore Ravens,15,0.8,2025-09-23,"Ravens at home, better defense"
