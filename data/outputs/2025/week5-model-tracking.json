@@ -1,0 +1,65 @@
+{
+  "week": 5,
+  "season": 2025,
+  "generated": "2025-10-02T05:47:01.007189",
+  "models": {
+    "expert_consensus": {
+      "name": "Expert Consensus",
+      "file": "data/outputs/2025/week-week5-expert-consensus.md",
+      "description": "CBS Sports expert consensus for straight-up winners",
+      "confidence_method": "Expert consensus strength (7/7 = 16 pts)",
+      "primary_model": true
+    },
+    "contrarian": {
+      "name": "Contrarian Strategy",
+      "file": "data/outputs/2025/week-week5-contrarian-picks.md",
+      "description": "Contrarian picks based on Week 4 performance and consensus failure analysis",
+      "confidence_method": "Risk-based (low risk = high points)",
+      "primary_model": false
+    }
+  },
+  "primary_model": "expert_consensus",
+  "rationale": {
+    "primary_model_selection": "Expert Consensus chosen as primary model because:",
+    "reasons": [
+      "Based on expert consensus which incorporates real-time factors",
+      "Similar confidence distribution to successful patterns",
+      "Data-driven approach using current information",
+      "Proven methodology that experts use successfully",
+      "Incorporates Vikings international game advantage"
+    ]
+  },
+  "tracking_purpose": {
+    "description": "Track all model performance for post-game analysis",
+    "goals": [
+      "Compare model accuracy week by week",
+      "Identify which models improve over time",
+      "Determine if contrarian strategy becomes more effective",
+      "Adjust primary model selection based on performance",
+      "Incorporate new factors (travel, international games, etc.)"
+    ]
+  },
+  "special_factors": {
+    "vikings_international_advantage": {
+      "game": "Minnesota Vikings @ Cleveland Browns",
+      "vikings_advantage": "Acclimated to timezone from Week 4 international game",
+      "browns_disadvantage": "First international game, adjusting to timezone",
+      "expert_consensus": "6/7 experts pick Vikings",
+      "recommendation": "Consider Vikings as stronger pick despite 6/7 expert consensus",
+      "confidence_adjustment": "Potential to increase Vikings confidence or fade Browns"
+    },
+    "week4_performance_insights": {
+      "contrarian_accuracy": "50.0% (8/16 correct)",
+      "medium_risk_success": "4/5 medium risk contrarian picks correct",
+      "high_risk_failure": "0/2 high risk contrarian picks correct",
+      "low_risk_mixed": "4/9 low risk contrarian picks correct",
+      "lesson": "Medium risk contrarian picks performed best in Week 4"
+    },
+    "consensus_patterns": {
+      "universal_consensus_games": 8,
+      "strong_consensus_games": 5,
+      "split_decision_games": 1,
+      "total_games": 14
+    }
+  }
+}
