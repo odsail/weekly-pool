@@ -85,12 +85,12 @@ python week4_contrarian_analysis.py
 - Use expert consensus for split decisions
 - Use contrarian approach for strong/universal consensus
 
-## Missing Information
+## Monday Night Game Information
 
 - **Monday Night Total Points**: Cincinnati Bengals @ Denver Broncos
-  - Not provided by CBS Sports experts
-  - Needed for tie-breaker purposes
-  - Source elsewhere for total points prediction
+  - **Tie-breaker Total**: **45 total points**
+  - Source: The Odds API (DraftKings)
+  - Note: This is the whole number total for tie-breaker purposes
 
 ## Files Generated
 

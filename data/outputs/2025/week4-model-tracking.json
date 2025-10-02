@@ -1,0 +1,62 @@
+{
+  "week": 4,
+  "season": 2025,
+  "generated": "2025-09-25T16:41:11.398187",
+  "models": {
+    "straight_up_consensus": {
+      "name": "Straight-Up Expert Consensus",
+      "file": "data/outputs/2025/week-week4-straight-up-consensus.md",
+      "description": "CBS Sports expert consensus for straight-up winners",
+      "confidence_method": "Expert consensus strength (7/7 = 16 pts)",
+      "primary_model": true
+    },
+    "contrarian": {
+      "name": "Contrarian Strategy",
+      "file": "data/outputs/2025/week-week4-contrarian-picks.md",
+      "description": "Contrarian picks based on consensus failure analysis",
+      "confidence_method": "Risk-based (low risk = high points)",
+      "primary_model": false
+    },
+    "expert_consensus": {
+      "name": "Expert Consensus (Original)",
+      "file": "data/outputs/2025/week-week4-expert-consensus.md",
+      "description": "Original expert consensus with spreads (for comparison)",
+      "confidence_method": "Expert consensus strength",
+      "primary_model": false
+    }
+  },
+  "primary_model": "straight_up_consensus",
+  "rationale": {
+    "primary_model_selection": "Straight-Up Expert Consensus chosen as primary model because:",
+    "reasons": [
+      "Most similar to successful Weeks 1-3 pattern (81.3% and 68.8% accuracy)",
+      "Based on expert consensus which incorporates real-time factors",
+      "Similar confidence distribution (55-85% range)",
+      "Data-driven approach using current information",
+      "Proven methodology that experts use successfully"
+    ]
+  },
+  "tracking_purpose": {
+    "description": "Track all model performance for post-game analysis",
+    "goals": [
+      "Compare model accuracy week by week",
+      "Identify which models improve over time",
+      "Determine if contrarian strategy becomes more effective",
+      "Adjust primary model selection based on performance",
+      "Incorporate new factors (travel, international games, etc.)"
+    ]
+  },
+  "special_factors": {
+    "international_games": {
+      "week4": "Minnesota Vikings vs Pittsburgh Steelers (both teams away from home)",
+      "week5": "Minnesota Vikings vs [opponent] (Vikings acclimated, opponent just arrived)",
+      "impact": "Vikings have timezone acclimation advantage in Week 5"
+    },
+    "travel_considerations": [
+      "Teams playing back-to-back international games",
+      "Time zone changes and acclimation periods",
+      "Home field advantage elimination for international games",
+      "Travel fatigue and recovery time"
+    ]
+  }
+}

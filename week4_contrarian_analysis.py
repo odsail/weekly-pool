@@ -180,126 +180,19 @@ def generate_contrarian_week4_picks():
     print("=" * 50)
     
     # Define contrarian picks based on analysis
+    # FIXED LOGIC: High risk contrarian picks get LOW confidence points
     contrarian_picks = [
-        # High risk contrarian picks (fade universal consensus)
+        # Low risk contrarian picks (split decisions and bounce backs) - HIGHEST CONFIDENCE
         {
             'confidence': 16,
-            'pick': 'New York Giants',
-            'game': 'Los Angeles Chargers @ New York Giants',
-            'expert_pick': 'Los Angeles Chargers',
-            'reason': 'Fade universal consensus (7/7 experts)',
-            'risk_level': 'HIGH'
-        },
-        {
-            'confidence': 15,
-            'pick': 'Las Vegas Raiders',
-            'game': 'Chicago Bears @ Las Vegas Raiders',
-            'expert_pick': 'Chicago Bears',
-            'reason': 'Fade universal consensus (7/7 experts)',
-            'risk_level': 'HIGH'
-        },
-        
-        # Medium risk contrarian picks (fade strong consensus)
-        {
-            'confidence': 14,
-            'pick': 'Arizona Cardinals',
-            'game': 'Arizona Cardinals @ Seattle Seahawks',
-            'expert_pick': 'Seattle Seahawks',
-            'reason': 'Fade strong consensus (6/7 experts)',
-            'risk_level': 'MEDIUM'
-        },
-        {
-            'confidence': 13,
-            'pick': 'Carolina Panthers',
-            'game': 'Carolina Panthers @ New England Patriots',
-            'expert_pick': 'New England Patriots',
-            'reason': 'Fade strong consensus (6/7 experts)',
-            'risk_level': 'MEDIUM'
-        },
-        {
-            'confidence': 12,
-            'pick': 'New Orleans Saints',
-            'game': 'New Orleans Saints @ Buffalo Bills',
-            'expert_pick': 'Buffalo Bills',
-            'reason': 'Fade strong consensus (6/7 experts)',
-            'risk_level': 'MEDIUM'
-        },
-        {
-            'confidence': 11,
-            'pick': 'Jacksonville Jaguars',
-            'game': 'Jacksonville Jaguars @ San Francisco 49ers',
-            'expert_pick': 'San Francisco 49ers',
-            'reason': 'Fade strong consensus (6/7 experts)',
-            'risk_level': 'MEDIUM'
-        },
-        {
-            'confidence': 10,
-            'pick': 'Cincinnati Bengals',
-            'game': 'Cincinnati Bengals @ Denver Broncos',
-            'expert_pick': 'Denver Broncos',
-            'reason': 'Fade strong consensus (6/7 experts)',
-            'risk_level': 'MEDIUM'
-        },
-        
-        # Low risk contrarian picks (split decisions and bounce backs)
-        {
-            'confidence': 9,
-            'pick': 'Pittsburgh Steelers',
-            'game': 'Pittsburgh Steelers @ Minnesota Vikings',
-            'expert_pick': 'Minnesota Vikings',
-            'reason': 'Carson Wentz factor + split decision (4/7 experts)',
-            'risk_level': 'LOW'
-        },
-        {
-            'confidence': 8,
-            'pick': 'Green Bay Packers',
-            'game': 'Green Bay Packers @ Dallas Cowboys',
-            'expert_pick': 'Dallas Cowboys',
-            'reason': 'Bounce back from universal failure + split decision (4/7 experts)',
-            'risk_level': 'LOW'
-        },
-        {
-            'confidence': 7,
-            'pick': 'Indianapolis Colts',
-            'game': 'Indianapolis Colts @ Los Angeles Rams',
-            'expert_pick': 'Los Angeles Rams',
-            'reason': 'Split decision contrarian (4/7 experts)',
-            'risk_level': 'LOW'
-        },
-        {
-            'confidence': 6,
-            'pick': 'Cleveland Browns',
-            'game': 'Cleveland Browns @ Detroit Lions',
-            'expert_pick': 'Detroit Lions',
-            'reason': 'Browns were in universal failure last week, potential bounce back',
-            'risk_level': 'LOW'
-        },
-        {
-            'confidence': 5,
-            'pick': 'Philadelphia Eagles',
-            'game': 'Philadelphia Eagles @ Tampa Bay Buccaneers',
-            'expert_pick': 'Tampa Bay Buccaneers',
-            'reason': 'Eagles are 3-0, moderate consensus (5/7 experts)',
-            'risk_level': 'LOW'
-        },
-        {
-            'confidence': 4,
-            'pick': 'Houston Texans',
-            'game': 'Tennessee Titans @ Houston Texans',
-            'expert_pick': 'Tennessee Titans',
+            'pick': 'Miami Dolphins',
+            'game': 'New York Jets @ Miami Dolphins',
+            'expert_pick': 'New York Jets',
             'reason': 'Moderate consensus (5/7 experts), both teams 0-3',
             'risk_level': 'LOW'
         },
         {
-            'confidence': 3,
-            'pick': 'Atlanta Falcons',
-            'game': 'Washington Commanders @ Atlanta Falcons',
-            'expert_pick': 'Washington Commanders',
-            'reason': 'Falcons were in near universal failure last week',
-            'risk_level': 'LOW'
-        },
-        {
-            'confidence': 2,
+            'confidence': 15,
             'pick': 'Kansas City Chiefs',
             'game': 'Baltimore Ravens @ Kansas City Chiefs',
             'expert_pick': 'Baltimore Ravens',
@@ -307,12 +200,120 @@ def generate_contrarian_week4_picks():
             'risk_level': 'LOW'
         },
         {
-            'confidence': 1,
-            'pick': 'Miami Dolphins',
-            'game': 'New York Jets @ Miami Dolphins',
-            'expert_pick': 'New York Jets',
+            'confidence': 14,
+            'pick': 'Atlanta Falcons',
+            'game': 'Washington Commanders @ Atlanta Falcons',
+            'expert_pick': 'Washington Commanders',
+            'reason': 'Falcons were in near universal failure last week',
+            'risk_level': 'LOW'
+        },
+        {
+            'confidence': 13,
+            'pick': 'Houston Texans',
+            'game': 'Tennessee Titans @ Houston Texans',
+            'expert_pick': 'Tennessee Titans',
             'reason': 'Moderate consensus (5/7 experts), both teams 0-3',
             'risk_level': 'LOW'
+        },
+        {
+            'confidence': 12,
+            'pick': 'Philadelphia Eagles',
+            'game': 'Philadelphia Eagles @ Tampa Bay Buccaneers',
+            'expert_pick': 'Tampa Bay Buccaneers',
+            'reason': 'Eagles are 3-0, moderate consensus (5/7 experts)',
+            'risk_level': 'LOW'
+        },
+        {
+            'confidence': 11,
+            'pick': 'Cleveland Browns',
+            'game': 'Cleveland Browns @ Detroit Lions',
+            'expert_pick': 'Detroit Lions',
+            'reason': 'Browns were in universal failure last week, potential bounce back',
+            'risk_level': 'LOW'
+        },
+        {
+            'confidence': 10,
+            'pick': 'Indianapolis Colts',
+            'game': 'Indianapolis Colts @ Los Angeles Rams',
+            'expert_pick': 'Los Angeles Rams',
+            'reason': 'Split decision contrarian (4/7 experts)',
+            'risk_level': 'LOW'
+        },
+        {
+            'confidence': 9,
+            'pick': 'Green Bay Packers',
+            'game': 'Green Bay Packers @ Dallas Cowboys',
+            'expert_pick': 'Dallas Cowboys',
+            'reason': 'Bounce back from universal failure + split decision (4/7 experts)',
+            'risk_level': 'LOW'
+        },
+        {
+            'confidence': 8,
+            'pick': 'Pittsburgh Steelers',
+            'game': 'Pittsburgh Steelers @ Minnesota Vikings',
+            'expert_pick': 'Minnesota Vikings',
+            'reason': 'Carson Wentz factor + split decision (4/7 experts)',
+            'risk_level': 'LOW'
+        },
+        
+        # Medium risk contrarian picks (fade strong consensus) - MEDIUM CONFIDENCE
+        {
+            'confidence': 7,
+            'pick': 'Cincinnati Bengals',
+            'game': 'Cincinnati Bengals @ Denver Broncos',
+            'expert_pick': 'Denver Broncos',
+            'reason': 'Fade strong consensus (6/7 experts)',
+            'risk_level': 'MEDIUM'
+        },
+        {
+            'confidence': 6,
+            'pick': 'Jacksonville Jaguars',
+            'game': 'Jacksonville Jaguars @ San Francisco 49ers',
+            'expert_pick': 'San Francisco 49ers',
+            'reason': 'Fade strong consensus (6/7 experts)',
+            'risk_level': 'MEDIUM'
+        },
+        {
+            'confidence': 5,
+            'pick': 'New Orleans Saints',
+            'game': 'New Orleans Saints @ Buffalo Bills',
+            'expert_pick': 'Buffalo Bills',
+            'reason': 'Fade strong consensus (6/7 experts)',
+            'risk_level': 'MEDIUM'
+        },
+        {
+            'confidence': 4,
+            'pick': 'Carolina Panthers',
+            'game': 'Carolina Panthers @ New England Patriots',
+            'expert_pick': 'New England Patriots',
+            'reason': 'Fade strong consensus (6/7 experts)',
+            'risk_level': 'MEDIUM'
+        },
+        {
+            'confidence': 3,
+            'pick': 'Arizona Cardinals',
+            'game': 'Arizona Cardinals @ Seattle Seahawks',
+            'expert_pick': 'Seattle Seahawks',
+            'reason': 'Fade strong consensus (6/7 experts)',
+            'risk_level': 'MEDIUM'
+        },
+        
+        # High risk contrarian picks (fade universal consensus) - LOWEST CONFIDENCE
+        {
+            'confidence': 2,
+            'pick': 'Las Vegas Raiders',
+            'game': 'Chicago Bears @ Las Vegas Raiders',
+            'expert_pick': 'Chicago Bears',
+            'reason': 'Fade universal consensus (7/7 experts)',
+            'risk_level': 'HIGH'
+        },
+        {
+            'confidence': 1,
+            'pick': 'New York Giants',
+            'game': 'Los Angeles Chargers @ New York Giants',
+            'expert_pick': 'Los Angeles Chargers',
+            'reason': 'Fade universal consensus (7/7 experts)',
+            'risk_level': 'HIGH'
         }
     ]
     
@@ -363,33 +364,33 @@ This week's picks use a **contrarian strategy** based on our analysis of consens
     markdown_content += f"""
 ## Risk Analysis
 
-### 🚨 HIGH RISK CONTRARIAN PICKS (2 picks):
-- **New York Giants** vs Los Angeles Chargers (16 pts)
-- **Las Vegas Raiders** vs Chicago Bears (15 pts)
+### 💡 LOW RISK CONTRARIAN PICKS (9 picks) - HIGHEST CONFIDENCE:
+- **Miami Dolphins** vs New York Jets (16 pts) - Both teams 0-3
+- **Kansas City Chiefs** vs Baltimore Ravens (15 pts) - Ravens were in near universal failure
+- **Atlanta Falcons** vs Washington Commanders (14 pts) - Falcons were in near universal failure
+- **Houston Texans** vs Tennessee Titans (13 pts) - Both teams 0-3
+- **Philadelphia Eagles** vs Tampa Bay Buccaneers (12 pts) - Eagles are 3-0
+- **Cleveland Browns** vs Detroit Lions (11 pts) - Bounce back potential
+- **Indianapolis Colts** vs Los Angeles Rams (10 pts) - Split decision
+- **Green Bay Packers** vs Dallas Cowboys (9 pts) - Bounce back from universal failure
+- **Pittsburgh Steelers** vs Minnesota Vikings (8 pts) - Carson Wentz factor
 
-**Rationale**: These games have universal expert consensus (7/7 experts). Based on our historical analysis, universal consensus often fails.
+**Rationale**: These picks are based on split decisions, bounce-back potential, or moderate consensus that can be faded. They get the highest confidence points because they're the safest contrarian plays.
 
-### ⚠️ MEDIUM RISK CONTRARIAN PICKS (5 picks):
-- **Arizona Cardinals** vs Seattle Seahawks (14 pts)
-- **Carolina Panthers** vs New England Patriots (13 pts)
-- **New Orleans Saints** vs Buffalo Bills (12 pts)
-- **Jacksonville Jaguars** vs San Francisco 49ers (11 pts)
-- **Cincinnati Bengals** vs Denver Broncos (10 pts)
+### ⚠️ MEDIUM RISK CONTRARIAN PICKS (5 picks) - MEDIUM CONFIDENCE:
+- **Cincinnati Bengals** vs Denver Broncos (7 pts)
+- **Jacksonville Jaguars** vs San Francisco 49ers (6 pts)
+- **New Orleans Saints** vs Buffalo Bills (5 pts)
+- **Carolina Panthers** vs New England Patriots (4 pts)
+- **Arizona Cardinals** vs Seattle Seahawks (3 pts)
 
-**Rationale**: These games have strong expert consensus (6/7 experts). Strong consensus has historically been wrong frequently.
+**Rationale**: These games have strong expert consensus (6/7 experts). Strong consensus has historically been wrong frequently, but they're riskier than split decisions.
 
-### 💡 LOW RISK CONTRARIAN PICKS (9 picks):
-- **Pittsburgh Steelers** vs Minnesota Vikings (9 pts) - Carson Wentz factor
-- **Green Bay Packers** vs Dallas Cowboys (8 pts) - Bounce back from universal failure
-- **Indianapolis Colts** vs Los Angeles Rams (7 pts) - Split decision
-- **Cleveland Browns** vs Detroit Lions (6 pts) - Bounce back potential
-- **Philadelphia Eagles** vs Tampa Bay Buccaneers (5 pts) - Eagles are 3-0
-- **Houston Texans** vs Tennessee Titans (4 pts) - Both teams 0-3
-- **Atlanta Falcons** vs Washington Commanders (3 pts) - Falcons were in near universal failure
-- **Kansas City Chiefs** vs Baltimore Ravens (2 pts) - Ravens were in near universal failure
-- **Miami Dolphins** vs New York Jets (1 pts) - Both teams 0-3
+### 🚨 HIGH RISK CONTRARIAN PICKS (2 picks) - LOWEST CONFIDENCE:
+- **Las Vegas Raiders** vs Chicago Bears (2 pts)
+- **New York Giants** vs Los Angeles Chargers (1 pt)
 
-**Rationale**: These picks are based on split decisions, bounce-back potential, or moderate consensus that can be faded.
+**Rationale**: These games have universal expert consensus (7/7 experts). Based on our historical analysis, universal consensus often fails, but these are the riskiest contrarian plays, so they get the lowest confidence points.
 
 ## Key Contrarian Opportunities
 

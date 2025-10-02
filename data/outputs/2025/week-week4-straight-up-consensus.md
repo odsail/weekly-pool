@@ -39,6 +39,12 @@ This week's picks are based on CBS Sports expert straight-up winner consensus wi
 | 2 | New York Jets | 65.0% | 5/7 (71.4%) | Miami Dolphins | New York Jets | 5/7 |
 | 1 | Minnesota Vikings | 55.0% | 4/7 (57.1%) | Minnesota Vikings | Pittsburgh Steelers | 4/7 |
 
+## Monday Night Game - Tie Breaker
+
+| Game | Pick | Total Points |
+|------|------|-------------|
+| Cincinnati Bengals @ Denver Broncos | Denver Broncos | **45** |
+
 ## Key Insights
 
 ### Universal Consensus Games (7/7 experts):
@@ -91,7 +97,7 @@ Based on our consensus failure analysis from Weeks 1-3, consider these contraria
 
 ## Notes
 
-- **Monday Night Game**: Cincinnati Bengals @ Denver Broncos (Tie-breaker: Total points not provided by experts)
+- **Monday Night Game**: Cincinnati Bengals @ Denver Broncos (Tie-breaker: **45 total points**)
 - **Green Bay Investigation**: Packers were in universal failure last week (18/18 wrong) - now 7/7 expert consensus
 - **Carson Wentz Factor**: User mentioned concerns about MIN vs PIT game due to Wentz's recent performance
 - **Universal Consensus Alert**: 8 games have 7/7 expert consensus - historically high fade opportunity

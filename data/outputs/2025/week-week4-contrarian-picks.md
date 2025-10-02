@@ -1,6 +1,6 @@
 # Week 4 NFL Confidence Picks - Contrarian Strategy
 
-**Generated:** 2025-09-24 19:08:05  
+**Generated:** 2025-09-25 16:40:36  
 **Command Used:** `python week4_contrarian_analysis.py`  
 **Strategy:** Contrarian picks based on consensus failure analysis from Weeks 1-3  
 **Data Source:** CBS Sports expert picks + historical consensus failure patterns
@@ -8,8 +8,6 @@
 ## Methodology
 
 This week's picks use a **contrarian strategy** based on our analysis of consensus failures from Weeks 1-3:
-
-**IMPORTANT:** We are picking the **straight-up winner** of each game, NOT covering the point spread. The spreads shown in the expert data are for reference only.
 
 ### Key Insights from Historical Analysis:
 - **11 consensus failures** across 3 weeks
@@ -26,52 +24,52 @@ This week's picks use a **contrarian strategy** based on our analysis of consens
 
 | Points | Pick | Risk | Game | Expert Pick | Reason |
 |--------|------|------|------|-------------|---------|
-| 16 | New York Giants | 🚨 HIGH | Los Angeles Chargers @ New York Giants | Los Angeles Chargers | Fade universal consensus (7/7 experts) |
-| 15 | Las Vegas Raiders | 🚨 HIGH | Chicago Bears @ Las Vegas Raiders | Chicago Bears | Fade universal consensus (7/7 experts) |
-| 14 | Arizona Cardinals | ⚠️ MEDIUM | Arizona Cardinals @ Seattle Seahawks | Seattle Seahawks | Fade strong consensus (6/7 experts) |
-| 13 | Carolina Panthers | ⚠️ MEDIUM | Carolina Panthers @ New England Patriots | New England Patriots | Fade strong consensus (6/7 experts) |
-| 12 | New Orleans Saints | ⚠️ MEDIUM | New Orleans Saints @ Buffalo Bills | Buffalo Bills | Fade strong consensus (6/7 experts) |
-| 11 | Jacksonville Jaguars | ⚠️ MEDIUM | Jacksonville Jaguars @ San Francisco 49ers | San Francisco 49ers | Fade strong consensus (6/7 experts) |
-| 10 | Cincinnati Bengals | ⚠️ MEDIUM | Cincinnati Bengals @ Denver Broncos | Denver Broncos | Fade strong consensus (6/7 experts) |
-| 9 | Pittsburgh Steelers | 💡 LOW | Pittsburgh Steelers @ Minnesota Vikings | Minnesota Vikings | Carson Wentz factor + split decision (4/7 experts) |
-| 8 | Green Bay Packers | 💡 LOW | Green Bay Packers @ Dallas Cowboys | Dallas Cowboys | Bounce back from universal failure + split decision (4/7 experts) |
-| 7 | Indianapolis Colts | 💡 LOW | Indianapolis Colts @ Los Angeles Rams | Los Angeles Rams | Split decision contrarian (4/7 experts) |
-| 6 | Cleveland Browns | 💡 LOW | Cleveland Browns @ Detroit Lions | Detroit Lions | Browns were in universal failure last week, potential bounce back |
-| 5 | Philadelphia Eagles | 💡 LOW | Philadelphia Eagles @ Tampa Bay Buccaneers | Tampa Bay Buccaneers | Eagles are 3-0, moderate consensus (5/7 experts) |
-| 4 | Houston Texans | 💡 LOW | Tennessee Titans @ Houston Texans | Tennessee Titans | Moderate consensus (5/7 experts), both teams 0-3 |
-| 3 | Atlanta Falcons | 💡 LOW | Washington Commanders @ Atlanta Falcons | Washington Commanders | Falcons were in near universal failure last week |
-| 2 | Kansas City Chiefs | 💡 LOW | Baltimore Ravens @ Kansas City Chiefs | Baltimore Ravens | Ravens were in near universal failure last week |
-| 1 | Miami Dolphins | 💡 LOW | New York Jets @ Miami Dolphins | New York Jets | Moderate consensus (5/7 experts), both teams 0-3 |
+| 16 | Miami Dolphins | 💡 LOW | New York Jets @ Miami Dolphins | New York Jets | Moderate consensus (5/7 experts), both teams 0-3 |
+| 15 | Kansas City Chiefs | 💡 LOW | Baltimore Ravens @ Kansas City Chiefs | Baltimore Ravens | Ravens were in near universal failure last week |
+| 14 | Atlanta Falcons | 💡 LOW | Washington Commanders @ Atlanta Falcons | Washington Commanders | Falcons were in near universal failure last week |
+| 13 | Houston Texans | 💡 LOW | Tennessee Titans @ Houston Texans | Tennessee Titans | Moderate consensus (5/7 experts), both teams 0-3 |
+| 12 | Philadelphia Eagles | 💡 LOW | Philadelphia Eagles @ Tampa Bay Buccaneers | Tampa Bay Buccaneers | Eagles are 3-0, moderate consensus (5/7 experts) |
+| 11 | Cleveland Browns | 💡 LOW | Cleveland Browns @ Detroit Lions | Detroit Lions | Browns were in universal failure last week, potential bounce back |
+| 10 | Indianapolis Colts | 💡 LOW | Indianapolis Colts @ Los Angeles Rams | Los Angeles Rams | Split decision contrarian (4/7 experts) |
+| 9 | Green Bay Packers | 💡 LOW | Green Bay Packers @ Dallas Cowboys | Dallas Cowboys | Bounce back from universal failure + split decision (4/7 experts) |
+| 8 | Pittsburgh Steelers | 💡 LOW | Pittsburgh Steelers @ Minnesota Vikings | Minnesota Vikings | Carson Wentz factor + split decision (4/7 experts) |
+| 7 | Cincinnati Bengals | ⚠️ MEDIUM | Cincinnati Bengals @ Denver Broncos | Denver Broncos | Fade strong consensus (6/7 experts) |
+| 6 | Jacksonville Jaguars | ⚠️ MEDIUM | Jacksonville Jaguars @ San Francisco 49ers | San Francisco 49ers | Fade strong consensus (6/7 experts) |
+| 5 | New Orleans Saints | ⚠️ MEDIUM | New Orleans Saints @ Buffalo Bills | Buffalo Bills | Fade strong consensus (6/7 experts) |
+| 4 | Carolina Panthers | ⚠️ MEDIUM | Carolina Panthers @ New England Patriots | New England Patriots | Fade strong consensus (6/7 experts) |
+| 3 | Arizona Cardinals | ⚠️ MEDIUM | Arizona Cardinals @ Seattle Seahawks | Seattle Seahawks | Fade strong consensus (6/7 experts) |
+| 2 | Las Vegas Raiders | 🚨 HIGH | Chicago Bears @ Las Vegas Raiders | Chicago Bears | Fade universal consensus (7/7 experts) |
+| 1 | New York Giants | 🚨 HIGH | Los Angeles Chargers @ New York Giants | Los Angeles Chargers | Fade universal consensus (7/7 experts) |
 
 ## Risk Analysis
 
-### 🚨 HIGH RISK CONTRARIAN PICKS (2 picks):
-- **New York Giants** vs Los Angeles Chargers (16 pts)
-- **Las Vegas Raiders** vs Chicago Bears (15 pts)
+### 💡 LOW RISK CONTRARIAN PICKS (9 picks) - HIGHEST CONFIDENCE:
+- **Miami Dolphins** vs New York Jets (16 pts) - Both teams 0-3
+- **Kansas City Chiefs** vs Baltimore Ravens (15 pts) - Ravens were in near universal failure
+- **Atlanta Falcons** vs Washington Commanders (14 pts) - Falcons were in near universal failure
+- **Houston Texans** vs Tennessee Titans (13 pts) - Both teams 0-3
+- **Philadelphia Eagles** vs Tampa Bay Buccaneers (12 pts) - Eagles are 3-0
+- **Cleveland Browns** vs Detroit Lions (11 pts) - Bounce back potential
+- **Indianapolis Colts** vs Los Angeles Rams (10 pts) - Split decision
+- **Green Bay Packers** vs Dallas Cowboys (9 pts) - Bounce back from universal failure
+- **Pittsburgh Steelers** vs Minnesota Vikings (8 pts) - Carson Wentz factor
 
-**Rationale**: These games have universal expert consensus (7/7 experts). Based on our historical analysis, universal consensus often fails.
+**Rationale**: These picks are based on split decisions, bounce-back potential, or moderate consensus that can be faded. They get the highest confidence points because they're the safest contrarian plays.
 
-### ⚠️ MEDIUM RISK CONTRARIAN PICKS (5 picks):
-- **Arizona Cardinals** vs Seattle Seahawks (14 pts)
-- **Carolina Panthers** vs New England Patriots (13 pts)
-- **New Orleans Saints** vs Buffalo Bills (12 pts)
-- **Jacksonville Jaguars** vs San Francisco 49ers (11 pts)
-- **Cincinnati Bengals** vs Denver Broncos (10 pts)
+### ⚠️ MEDIUM RISK CONTRARIAN PICKS (5 picks) - MEDIUM CONFIDENCE:
+- **Cincinnati Bengals** vs Denver Broncos (7 pts)
+- **Jacksonville Jaguars** vs San Francisco 49ers (6 pts)
+- **New Orleans Saints** vs Buffalo Bills (5 pts)
+- **Carolina Panthers** vs New England Patriots (4 pts)
+- **Arizona Cardinals** vs Seattle Seahawks (3 pts)
 
-**Rationale**: These games have strong expert consensus (6/7 experts). Strong consensus has historically been wrong frequently.
+**Rationale**: These games have strong expert consensus (6/7 experts). Strong consensus has historically been wrong frequently, but they're riskier than split decisions.
 
-### 💡 LOW RISK CONTRARIAN PICKS (9 picks):
-- **Pittsburgh Steelers** vs Minnesota Vikings (9 pts) - Carson Wentz factor
-- **Green Bay Packers** vs Dallas Cowboys (8 pts) - Bounce back from universal failure
-- **Indianapolis Colts** vs Los Angeles Rams (7 pts) - Split decision
-- **Cleveland Browns** vs Detroit Lions (6 pts) - Bounce back potential
-- **Philadelphia Eagles** vs Tampa Bay Buccaneers (5 pts) - Eagles are 3-0
-- **Houston Texans** vs Tennessee Titans (4 pts) - Both teams 0-3
-- **Atlanta Falcons** vs Washington Commanders (3 pts) - Falcons were in near universal failure
-- **Kansas City Chiefs** vs Baltimore Ravens (2 pts) - Ravens were in near universal failure
-- **Miami Dolphins** vs New York Jets (1 pts) - Both teams 0-3
+### 🚨 HIGH RISK CONTRARIAN PICKS (2 picks) - LOWEST CONFIDENCE:
+- **Las Vegas Raiders** vs Chicago Bears (2 pts)
+- **New York Giants** vs Los Angeles Chargers (1 pt)
 
-**Rationale**: These picks are based on split decisions, bounce-back potential, or moderate consensus that can be faded.
+**Rationale**: These games have universal expert consensus (7/7 experts). Based on our historical analysis, universal consensus often fails, but these are the riskiest contrarian plays, so they get the lowest confidence points.
 
 ## Key Contrarian Opportunities
 

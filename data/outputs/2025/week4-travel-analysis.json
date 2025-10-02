@@ -1,0 +1,43 @@
+{
+  "week": 4,
+  "season": 2025,
+  "generated": "2025-09-25T16:41:39.448755",
+  "travel_analysis": {
+    "international_games": {
+      "Minnesota Vikings vs Pittsburgh Steelers": {
+        "location": "International (both teams away from home)",
+        "vikings_advantage": "None - both teams equally affected",
+        "timezone_impact": "Both teams adjusting to same timezone",
+        "travel_fatigue": "Both teams have similar travel burden",
+        "confidence_adjustment": "No adjustment needed - neutral field"
+      }
+    },
+    "back_to_back_international": {
+      "Minnesota Vikings": {
+        "week4": "vs Pittsburgh Steelers (international)",
+        "week5": "vs [opponent] (international)",
+        "advantage": "Vikings will be acclimated to timezone in Week 5",
+        "opponent_disadvantage": "Week 5 opponent will be adjusting to timezone",
+        "confidence_adjustment": "Consider Vikings advantage for Week 5"
+      }
+    },
+    "regular_travel": {
+      "teams_with_significant_travel": [
+        "Teams traveling across multiple time zones",
+        "Teams with short rest periods",
+        "Teams with back-to-back road games"
+      ]
+    }
+  },
+  "travel_adjustments": {
+    "Minnesota Vikings vs Pittsburgh Steelers": {
+      "original_pick": "Minnesota Vikings",
+      "original_confidence": 1,
+      "travel_factor": "International game - both teams away from home",
+      "adjustment": "No home field advantage for either team",
+      "adjusted_pick": "Minnesota Vikings",
+      "adjusted_confidence": 1,
+      "rationale": "Both teams equally affected by international travel"
+    }
+  }
+}
