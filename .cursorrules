@@ -1,0 +1,156 @@
+# NFL Confidence Pool Analysis System - Cursor Rules
+
+## Core Principles
+- **DO NOT** create new Python scripts for each week
+- **USE** the existing codebase with week parameters
+- **MAINTAIN** the database-driven approach from README.md
+- **INCORPORATE** prior week results into current week analysis
+- **TRACK** all model performance for continuous improvement
+
+## Existing Codebase Structure
+- **Main System**: `enhanced_picks_generator.py` - Use this with `--week N --analyze-prior`
+- **Database**: SQLite database stores all historical data
+- **ML Model**: Learns from historical accuracy and improves over time
+- **Analysis**: Prior week analysis feeds into current week picks
+
+## Weekly Workflow (DO NOT DEVIATE)
+1. **Thursday**: Run `python enhanced_picks_generator.py --week N --analyze-prior`
+2. **This command**:
+   - Analyzes Week N-1 results
+   - Retrains ML model with new data
+   - Generates Week N picks with ML enhancement
+   - Stores everything in database
+   - Exports picks to files
+
+## Output Files (Standard Format)
+- **Database**: `data/nfl_pool.db` (all historical data)
+- **Picks CSV**: `data/outputs/2025/week-weekN-picks.csv`
+- **Picks Markdown**: `data/outputs/2025/week-weekN-picks.md`
+- **Analysis**: `data/analysis/2025/weekN-analysis.json`
+
+## Key Features to Maintain
+- **Machine Learning Enhancement**: Uses historical accuracy data
+- **Expert Consensus Integration**: Incorporate CBS Sports expert picks
+- **Contrarian Analysis**: Track consensus failure patterns
+- **Travel Factors**: International games, timezone advantages
+- **Model Tracking**: Compare all model performance post-game
+
+## What NOT to Do
+- ❌ Create new Python scripts for each week
+- ❌ Rewrite existing functionality
+- ❌ Ignore the database-driven approach
+- ❌ Skip prior week analysis
+- ❌ Create one-off solutions
+
+## What TO Do
+- ✅ Use existing `enhanced_picks_generator.py` with week parameters
+- ✅ Maintain database integrity
+- ✅ Incorporate prior week results
+- ✅ Track model performance
+- ✅ Document command used in output files
+- ✅ Follow the established workflow
+
+## Model Selection Strategy
+- **Primary Model**: Use the model with highest historical accuracy
+- **Track All Models**: Expert consensus, contrarian, ML-enhanced
+- **Post-Game Analysis**: Compare performance and adjust strategy
+- **Continuous Learning**: System improves with each week's data
+
+## Special Factors to Consider
+- **International Games**: Timezone acclimation advantages
+- **Consensus Failures**: Historical patterns of expert consensus being wrong
+- **Team Performance**: Recent form and trends
+- **Travel Impact**: Back-to-back road games, short rest
+
+## Documentation Requirements
+- **Command Used**: Always include the exact command in output files
+- **Methodology**: Document the approach used
+- **Data Sources**: Specify where expert picks come from
+- **Special Factors**: Note any unique considerations
+
+## Success Metrics
+- **Cumulative Performance**: Stay at top of pool overall
+- **Weekly Wins**: Improve individual week performance
+- **Model Accuracy**: Track which models perform best
+- **Learning Rate**: System should improve over time
+
+## Current Status
+- **Week 4 Performance**: 56.2% accuracy (9/16 correct)
+- **Contrarian Strategy**: 50.0% accuracy (8/16 correct)
+- **Best Performing**: Medium risk contrarian picks (4/5 correct)
+- **Primary Model**: Expert consensus with ML enhancement
+
+## Next Steps for Week 5
+1. Run `python enhanced_picks_generator.py --week 5 --analyze-prior`
+2. Incorporate Vikings international game advantage
+3. Track all model performance
+4. Document results for Week 6 analysis
+
+---
+**Remember**: The system is designed to learn and improve. Don't reinvent it each week!
+
+
+
+
+
+
+
+
+# ========================================
+# TODO Management Rules (Auto-added)
+# ========================================
+
+## TODO Maintenance Guidelines
+
+When working on this project, please follow these TODO management practices:
+
+### 1. Update TODOs.md Regularly
+- Add new tasks to the appropriate section in `TODOs.md`
+- Mark completed tasks with `[x]` instead of `[ ]`
+- Move completed items to the "✅ Completed (Last 7 days)" section
+- Keep the "🚀 In Progress" section focused on current work
+
+### 2. TODO Format
+Use this format for all TODO items:
+```markdown
+- [ ] Brief, actionable description of the task
+```
+
+### 3. Section Organization
+- **🚀 In Progress**: Current active work (max 3-5 items)
+- **📋 Backlog**: Planned future work
+- **🔍 Research/Investigation**: Items requiring research or exploration
+- **🐛 Bugs**: Known issues to fix
+- **💡 Ideas**: Future enhancements or improvements
+- **✅ Completed**: Recently finished work (clean up weekly)
+
+### 4. When to Update TODOs.md
+- **Daily**: Use the daily update prompt to keep current work accurate
+- **Weekly**: Use the weekly review prompt for cleanup and prioritization
+- Before starting new work
+- When completing tasks
+- When discovering new bugs or ideas
+- At the end of each work session
+- When switching between different types of work
+
+### 5. Integration with Workspace
+This project's TODOs are automatically integrated into the workspace README via the `generate-workspaces-readme.sh` script. Keep TODOs.md updated to maintain accurate project status across all workspaces.
+
+### 6. Available Prompts
+When the user mentions these keywords, automatically load and use the corresponding prompt file:
+
+- **"Daily Updates"** or **"daily"**: Load `workspace-tools/daily-prompt.md` and use its content as the prompt
+- **"Weekly Reviews"** or **"weekly"**: Load `workspace-tools/weekly-prompt.md` and use its content as the prompt
+- **"Initial Setup"** or **"setup"**: Load `workspace-tools/cursor-todo-prompt.md` and use its content as the prompt
+- **"Quick Reference"** or **"reference"**: Load `workspace-tools/todo-workflow-quick-reference.md` and use its content as the prompt
+
+Always read the full content of these files and use them as the basis for your response.
+
+## Code Quality
+- Write clear, self-documenting code
+- Add comments for complex logic
+- Follow existing code style and patterns
+- Test changes thoroughly before committing
+
+
+

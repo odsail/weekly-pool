@@ -1,0 +1,41 @@
+# Workspace management tools (personal use only)
+workspace-tools/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+nfl_pool*.db
+
+# Data files (generated outputs)
+data/outputs/
+data/analysis/
+data/expert-picks-*.json
+data/raw/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Environment files
+.env
+.env.local
+
+# Model files
+models/*.pkl
+models/*.joblib
+models/*.h5
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
